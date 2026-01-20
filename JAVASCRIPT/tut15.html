@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Date</title>
+</head>
+
+<style>
+    /* Simple styling for clock container */
+    .container{
+        font-size: 23px;
+        background-color: blanchedalmond;
+        padding: 34px 40px;
+        border: 2px solid red;
+        margin: 4px;
+        text-align: center;
+    }
+
+    #time{
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <!-- Container to show live date & time -->
+    <div class="container">
+        Current time is <span id="time"></span>
+    </div>
+
+<script>
+        console.log("This is Date and Time tutorial");
+
+        /* =====================================================
+           DATE OBJECT IN JAVASCRIPT
+           ===================================================== */
+
+        /*
+        Date:
+        - Date is a built-in JavaScript object
+        - Used to work with date and time
+        - It stores date as milliseconds from Jan 1, 1970
+        */
+
+        // Current date & time
+        let now = new Date();
+        console.log(now);
+
+        // Date created using milliseconds
+        let dt = new Date(10); // 10 ms after Jan 1, 1970
+        console.log(dt);
+
+        /* ===================== DATE FORMATS ===================== */
+
+        // Date using string (YYYY-MM-DD)
+        // let newDate = new Date("2029-09-30");
+        // console.log(newDate);
+
+        /*
+        Date using parameters:
+        new Date(year, month, date, hours, minutes, seconds, milliseconds)
+
+        NOTE:
+        - Month starts from 0 (January = 0)
+        - April = 3, May = 4
+        */
+
+        let newDate = new Date(3020, 4, 6, 9, 3, 34);
+        console.log(newDate);
+
+        /* =====================================================
+           GET METHODS (READ DATE VALUES)
+           ===================================================== */
+
+        // Get full year
+        let yr = newDate.getFullYear();
+        console.log("This year is", yr);
+
+        // Get date (day of month)
+        let d = newDate.getDate();
+        console.log("This date is", d);
+
+        // Get month (0–11)
+        let month = newDate.getMonth();
+        console.log("This month is", month);
+
+        // Get hours
+        let hr = newDate.getHours();
+        console.log("This hour is", hr);
+
+        // Get minutes
+        let mt = newDate.getMinutes();
+        console.log("This minute is", mt);
+
+        // Get seconds
+        let sc = newDate.getSeconds();
+        console.log("This second is", sc);
+
+        // Get milliseconds
+        let mls = newDate.getMilliseconds();
+        console.log("This millisecond is", mls);
+
+        /* =====================================================
+           SET METHODS (MODIFY DATE VALUES)
+           ===================================================== */
+
+        /*
+        setDate()
+        setMonth()
+        setFullYear()
+        setHours()
+        setMinutes()
+        setSeconds()
+        setMilliseconds()
+        */
+
+        newDate.setDate(5);
+        console.log(newDate);
+
+        newDate.setDate(8);
+        newDate.setMinutes(29);
+        console.log(newDate);
+
+        /* =====================================================
+           Date.now()
+           ===================================================== */
+
+        /*
+        Date.now():
+        - Returns current time in milliseconds
+        - Mostly used for performance & timers
+        */
+
+        let today = Date.now();
+        console.log(today);
+
+        /* =====================================================
+           LIVE CLOCK USING setInterval
+           ===================================================== */
+
+        /*
+        setInterval():
+        - Executes function repeatedly after given time
+        - Here used to update time every second
+        */
+
+        setInterval(updateTime, 1000);
+
+        function updateTime(){
+            // 'time' refers to span with id="time"
+            time.innerHTML = new Date();
+        }
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. Month index starts from 0
+        2. Date object stores time in milliseconds
+        3. get methods → read date values
+        4. set methods → modify date values
+        5. Date.now() → returns timestamp
+        6. Used in clocks, timers, logs, sessions
+        */
+
+</script>
+</body>
+</html>

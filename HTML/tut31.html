@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+    CSS SELECTORS — COMPLETE NOTES (COMBINATORS & ADVANCED SELECTORS)
+    ============================================================
+
+    WHAT ARE CSS SELECTORS?
+    CSS selectors are patterns used to select HTML elements
+    so that styles can be applied to them.
+
+    WHY SELECTORS ARE IMPORTANT?
+    1. They decide WHICH elements get styled
+    2. They help target elements precisely
+    3. They make CSS powerful and flexible
+
+    TYPES OF SELECTORS COVERED HERE:
+    1. Element selector
+    2. Descendant selector
+    3. Child selector
+    4. Adjacent sibling selector
+-->
+
+<html lang="en">
+<!-- Root element of the HTML document -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes layout responsive -->
+
+    <title>More on Selector</title>
+    <!-- Page title -->
+
+    <style>
+        /*
+            ELEMENT SELECTOR
+            Definition:
+            Selects all elements of a given type
+        */
+        h1{
+            background-color: aqua;
+            /* Sets background color */
+
+            color: black;
+            /* Sets text color */
+
+            font-weight: bold;
+            /* Makes text bold */
+
+            text-align: center;
+            /* Centers text */
+        }
+
+        /*
+            DESCENDANT SELECTOR
+            Syntax: A B C
+
+            Definition:
+            Selects element C that is inside B,
+            and B is inside A (at ANY level).
+
+            Example below:
+            div li p
+            Means:
+            - p inside li
+            - li inside div
+
+            Uncomment to apply
+        */
+        /*
+        div li p{
+            color: yellow;
+            background-color: green;
+            font-weight: bold;
+        }
+        */
+
+        /*
+            CHILD SELECTOR
+            Syntax: A > B
+
+            Definition:
+            Selects element B ONLY IF it is
+            a DIRECT child of A.
+
+            Example:
+            div > p
+            Means:
+            - p must be directly inside div
+            - nested p elements are ignored
+        */
+        /*
+        div > p{
+            color: yellow;
+            background-color: green;
+            font-weight: bold;
+        }
+        */
+
+        /*
+            ADJACENT SIBLING SELECTOR
+            Syntax: A + B
+
+            Definition:
+            Selects element B ONLY IF it comes
+            immediately AFTER A (same parent).
+
+            Example:
+            div + p
+            Means:
+            - p must be the NEXT sibling of div
+        */
+        /*
+        div + p{
+            color: wheat;
+            background-color: red;
+        }
+        */
+    </style>
+</head>
+
+<body>
+    <!-- Main heading -->
+    <h1>This is more on Selector</h1>
+
+    <!-- Container div -->
+    <div class="container">
+
+        <!-- Row div -->
+        <div class="row">
+
+            <!-- Unordered list -->
+            <ul>
+                <!-- li containing p -->
+                <li class="item">
+                    <p>This is another paragraph inside li</p>
+                </li>
+
+                <!-- Simple li -->
+                <li>MY Name is ram</li>
+
+                <!-- p directly inside ul -->
+                <p>this is a para inside ul</p>
+            </ul>
+
+            <!-- p directly inside div.row -->
+            <p>This is a paragraph</p>
+        </div>
+
+        <!-- p directly inside div.container -->
+        <p>This is another paragraph</p>
+    </div>
+
+    <!-- p immediately after div.container -->
+    <p>This is outermost paragraph</p>
+
+</body>
+</html>
+
+<!--
+    ============================================================
+    CSS SELECTORS — REVISION NOTES
+    ============================================================
+
+    1. ELEMENT SELECTOR
+       Example: h1
+       Selects all h1 elements
+
+    2. DESCENDANT SELECTOR (SPACE)
+       Example: div li p
+       Selects all p inside li inside div (any depth)
+
+    3. CHILD SELECTOR (>)
+       Example: div > p
+       Selects only p that are DIRECT children of div
+
+    4. ADJACENT SIBLING SELECTOR (+)
+       Example: div + p
+       Selects p that comes immediately after div
+
+    IMPORTANT DIFFERENCE:
+    - div li p → any nested p
+    - div > p → only direct p
+    - div + p → only next p
+
+    BEST PRACTICES:
+    ✔ Use specific selectors
+    ✔ Avoid overly deep selectors
+    ✔ Comment CSS for clarity
+
+    INTERVIEW ONE-LINER:
+    CSS combinators define relationships between elements
+    such as parent-child and sibling relationships.
+-->

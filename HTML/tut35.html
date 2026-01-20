@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+    HTML5 DOCUMENT TYPE
+    Tells the browser to use HTML5 standards
+-->
+
+<html lang="en">
+<!--
+    Root element of the page
+    lang="en" helps screen readers and SEO
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!--
+        Character encoding
+        Ensures text displays correctly
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        Makes the layout responsive
+        width=device-width → match device width
+        initial-scale=1.0 → default zoom
+    -->
+
+    <title>CSS Variables / Custom Properties</title>
+    <!--
+        Page title shown in browser tab
+    -->
+
+    <style>
+        /*
+            =================================================
+            :root SELECTOR
+            =================================================
+            :root represents the highest-level element (html)
+
+            WHY WE USE :root:
+            - To define global CSS variables
+            - Variables declared here are accessible everywhere
+        */
+        :root{
+            --primary-color: green;
+            /* Main theme color */
+
+            --danger-color: red;
+            /* Used for warnings or highlights */
+
+            --box-color: violet;
+            /* Background color for container */
+
+            --maxw: 333px;
+            /* Maximum width value reused in layout */
+        }
+
+        /*
+            =================================================
+            .box CLASS
+            =================================================
+            Styles individual box elements
+        */
+        .box{
+            width: 200px;
+            /* Fixed width of box */
+
+            height: 200px;
+            /* Fixed height of box */
+
+            background-color: var(--primary-color);
+            /*
+                var() function is used to access CSS variables
+                This allows easy theme changes
+            */
+
+            border: 2px solid red;
+            /* Box border */
+
+            box-shadow: 3px 3px var(--danger-color);
+            /*
+                Adds shadow using variable color
+                offset-x: 3px
+                offset-y: 3px
+            */
+
+            margin: 2px 9px;
+            /* Space around each box */
+        }
+
+        /*
+            =================================================
+            .container CLASS
+            =================================================
+            Wrapper that holds all boxes
+        */
+        .container{
+            max-width: var(--maxw);
+            /*
+                Limits container width using variable
+                Helps maintain responsive design
+            */
+
+            margin: auto;
+            /*
+                Centers container horizontally
+            */
+
+            background-color: var(--box-color);
+            /* Background using variable */
+
+            display: flex;
+            /*
+                Enables flexbox layout
+                Allows easy alignment of child elements
+            */
+
+            align-items: center;
+            /*
+                Vertically aligns boxes in center
+            */
+
+            justify-content: center;
+            /*
+                Horizontally aligns boxes in center
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        =================================================
+        HTML STRUCTURE
+        =================================================
+    -->
+
+    <!--
+        Container div
+        Holds multiple box elements
+    -->
+    <div class="container">
+
+        <!-- Individual boxes -->
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+
+    </div>
+</body>
+</html>
+
+<!--
+    =====================================================
+    QUICK NOTES / REVISION
+    =====================================================
+
+    CSS VARIABLES (CUSTOM PROPERTIES):
+    - Declared using --variable-name
+    - Accessed using var(--variable-name)
+
+    BENEFITS:
+    ✔ Easy theme changes
+    ✔ Cleaner, reusable code
+    ✔ Better maintainability
+    ✔ Dynamic layouts
+
+    :root:
+    - Global scope for variables
+    - Best place to declare theme values
+
+    FLEXBOX:
+    - Used for layout alignment
+    - justify-content → horizontal alignment
+    - align-items → vertical alignment
+
+    INTERVIEW ONE-LINER:
+    CSS variables allow defining reusable values that
+    can be changed dynamically and used throughout
+    the stylesheet.
+-->

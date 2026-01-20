@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+    CSS PSEUDO-ELEMENTS ::before & ::after — COMPLETE NOTES
+    ============================================================
+
+    TOPIC OVERVIEW:
+    This example demonstrates:
+    1. CSS pseudo-elements (::before)
+    2. How to add decorative content without HTML
+    3. Using pseudo-elements for background overlays
+    4. Layering using position and z-index
+
+    IMPORTANT CONCEPT:
+    ::before and ::after create virtual elements
+    that exist ONLY in CSS (not in HTML DOM)
+
+    COMMON USE CASES:
+    - Background overlays
+    - Decorative icons
+    - Styling without extra HTML
+-->
+
+<html lang="en">
+<!-- Root element of the HTML document -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures correct character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required for responsive layouts -->
+
+    <title>Pseudo selector before and after</title>
+
+    <style>
+        /*
+            =========================================
+            ::before PSEUDO-ELEMENT ON HEADER
+            =========================================
+
+            Definition:
+            ::before inserts content BEFORE the content
+            of the selected element.
+
+            IMPORTANT RULES:
+            ✔ content property is mandatory
+            ✔ Works only with ::before or ::after
+        */
+        header::before{
+            content: "";
+            /* Empty content used for decorative purpose */
+
+            position: absolute;
+            /* Removes element from normal flow */
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            /* Covers entire header */
+
+            z-index: -1;
+            /*
+                Places the pseudo-element behind header content
+            */
+
+            opacity: 0.3;
+            /*
+                Makes overlay transparent
+            */
+        }
+
+        /*
+            =========================================
+            BODY STYLING
+            =========================================
+        */
+        body{
+            margin: 0;
+            padding: 0;
+
+            background-color: black;
+            /* Fallback color */
+
+            color: white;
+            /* Text color */
+
+            /*
+                BACKGROUND IMAGE (SHORTHAND)
+                - image
+                - repeat
+                - position
+                - size
+            */
+            background: url('https://images.unsplash.com/photo-1438762398043-ac196c2fa1e7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0')
+                        no-repeat center center / cover;
+        }
+
+        /*
+            =========================================
+            SECTION STYLING
+            =========================================
+
+            Flexbox is used to center content
+            both horizontally and vertically
+        */
+        section{
+            font-family: 'Times New Roman', Times, serif;
+
+            height: 250px;
+            /* Fixed height for demo */
+
+            margin: 3px 2px;
+
+            display: flex;
+            /* Enables flexbox */
+
+            flex-direction: column;
+            /* Stack elements vertically */
+
+            align-items: center;
+            /* Horizontal centering */
+
+            justify-content: center;
+            /* Vertical centering */
+        }
+
+        /*
+            =========================================
+            NAVIGATION STYLING
+            =========================================
+        */
+        .Navigation{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+
+            display: flex;
+            /* Places list items in a row */
+        }
+
+        /*
+            Removes default list styling
+        */
+        li{
+            list-style: none;
+            padding: 20px 23px;
+        }
+
+        /*
+            EXAMPLE OF ::before ON SECTION (COMMENTED)
+            This would add text before section content
+        */
+        /*
+        section::before{
+            content: "this is a content";
+        }
+        */
+
+        /*
+            =========================================
+            HEADING STYLING
+            =========================================
+        */
+        h1{
+            font-size: 4rem;
+            /* Large responsive heading */
+
+            margin: 2px;
+            padding: 0;
+        }
+
+        /*
+            =========================================
+            PARAGRAPH STYLING
+            =========================================
+        */
+        p{
+            text-align: center;
+            /* Centers paragraph text */
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        =========================================
+        HEADER SECTION
+        =========================================
+    -->
+    <header>
+        <nav class="navbar">
+            <ul class="Navigation">
+                <li class="item">Home</li>
+                <li class="item">About</li>
+                <li class="item">Services</li>
+                <li class="item">Contact Us</li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--
+        =========================================
+        MAIN CONTENT SECTION
+        =========================================
+    -->
+    <section>
+        <h1>Welcome to coding world</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quo, perferendis dolores eaque sapiente rem, vero neque
+            maxime at ratione optio eos omnis, eligendi totam
+            perspiciatis id quod error necessitatibus fuga.
+        </p>
+    </section>
+
+</body>
+</html>
+
+<!--
+    ============================================================
+    QUICK REVISION NOTES
+    ============================================================
+
+    ::before:
+    Inserts content before an element’s content.
+
+    ::after:
+    Inserts content after an element’s content.
+
+    IMPORTANT RULES:
+    ✔ content property is required
+    ✔ Used mainly for decoration
+    ✔ Does not exist in HTML DOM
+
+    COMMON USE CASES:
+    - Background overlays
+    - Icons
+    - Shadows
+    - Decorative lines
+
+    z-index:
+    Controls stacking order.
+    Negative z-index places element behind content.
+
+    INTERVIEW ONE-LINER:
+    Pseudo-elements like ::before and ::after allow adding
+    decorative content using CSS without modifying HTML.
+-->

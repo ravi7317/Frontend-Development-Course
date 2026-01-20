@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope and condition</title>
+</head>
+<body>
+
+    <!-- Simple HTML list (not related to JS logic here) -->
+    <div>
+        <ul>
+            <li>Item-1</li>
+            <li>Item-2</li>
+            <li>Item-3</li>
+            <li>Item-4</li>
+            <li>Item-5</li>
+            <li>Item-6</li>
+            <li>Item-7</li>
+        </ul>
+    </div>
+
+    <script>
+        /* ===================== VARIABLES & SCOPE ===================== */
+
+        // var:
+        // - Has function scope
+        // - Can be redeclared and updated
+        // - Old way of declaring variables
+        // var string1 = "This is a string";
+        // var string1 = "This is a string2";
+        // console.log(string1);
+
+        // let:
+        // - Has block scope {}
+        // - Cannot be redeclared in same scope
+        // - Can be updated
+        // let a = 'u';
+        // console.log(a);
+        // {
+        //     let a = "u6";   // Different block, so allowed
+        //     console.log(a);
+        // }
+
+        // const:
+        // - Has block scope
+        // - Cannot be redeclared or updated
+        // - Value must remain constant
+        // const a = "this can not be change";
+        // a = "change";  ❌ Error
+        // console.log(a);
+
+        /* ===================== CONDITIONAL STATEMENTS ===================== */
+
+        // if-else statement:
+        // Used to execute code based on conditions
+
+        let age = 45;
+
+        if (age > 18) {
+            console.log("You can drink water");
+        }
+        else if (age == 2) {
+            console.log("Age is 2");
+        }
+        else {
+            console.log("You can drink cold drink");
+        }
+
+        // if → checks condition
+        // else if → checks another condition if previous is false
+        // else → runs when all conditions are false
+
+        // Used in:
+        // - Form validation
+        // - Login systems
+        // - Decision making logic
+
+        /* ===================== SWITCH CASE ===================== */
+
+        // switch statement:
+        // Used when we have multiple fixed values to compare
+
+        const cups = 45;
+
+        switch (cups) {
+            case 4:
+                console.log("The value of cups is 4");
+                break;
+
+            case 41:
+                console.log("The value of cup is 41");
+                break;
+
+            case 42:
+                console.log("The value of cup is 42");
+                break;
+
+            case 43:
+                console.log("The value of cup is 43");
+                break;
+
+            default:
+                console.log("The value of cups is none of 4, 41, 42, 43");
+                break;
+        }
+
+        // break:
+        // Stops execution after matching case
+        // Without break, next cases will also run (fall-through)
+
+    </script>
+</body>
+</html>

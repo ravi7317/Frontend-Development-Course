@@ -1,0 +1,19 @@
+p{
+    color: blue
+}
+
+/* p--> Selector( it will tellwhere we change the property) */
+/* color--> Property( this) */
+/* blue--> value(set this value) */
+
+/* for the multiple  property*/
+
+/* header, p.intro */
+header, p.intro{
+     background-color: red; /*group of selectors */
+     border-radius: 3px; /* Declaration block*/
+}
+/* three way to add css to the markup 
+1. inline css: css is added to the element directly using style attribute
+2. internal css: css is kept inside the head tags in<style> tags
+3. External css: css is kept seprateely inside a.css sheet include that file to markup*/

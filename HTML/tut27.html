@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+    Tells the browser this document uses HTML5
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the HTML document
+    lang="en" sets language to English
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding
+        Ensures all characters render correctly
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Makes the page responsive on different devices
+    -->
+
+    <title>Visibility And z-index</title>
+    <!-- 
+        Title shown in the browser tab
+    -->
+
+    <style>
+        /* 
+            COMMON BOX CLASS
+            Definition:
+            A reusable class to create square boxes
+        */
+        .box{
+            width: 170px;
+            /* Width of the box */
+
+            height: 170px;
+            /* Height of the box */
+
+            border: 2px solid black;
+            /* Border around the box */
+        }
+
+        /* 
+            BOX 1
+        */
+        #box1{
+            position: relative;
+            /* 
+                position: relative
+                Definition:
+                Element is positioned relative to its normal position
+                Enables use of top, left, z-index
+            */
+
+            top: 49px;
+            /* Moves box down 49px from its normal position */
+
+            z-index: 35;
+            /* 
+                z-index definition:
+                Controls vertical stacking order
+                Higher value = appears on top
+                Works only on positioned elements
+            */
+
+            /* 
+                NOTE:
+                z-index works only if position is:
+                relative, absolute, fixed, or sticky
+            */
+
+            background-color: green;
+            /* Background color */
+        }
+
+        /* 
+            BOX 2
+        */
+        #box2{
+            position: relative;
+            /* Allows z-index and top to work */
+
+            top: 14px;
+            /* Moves box down slightly */
+
+            z-index: 34;
+            /* 
+                Lower than box1 (35)
+                So box1 will appear above box2
+            */
+
+            visibility: visible;
+            /* 
+                visibility: visible
+                Definition:
+                Element is visible (default state)
+            */
+
+            /* 
+                visibility: hidden
+                Definition:
+                Element becomes invisible
+                BUT space is still reserved
+            */
+
+            /* 
+                display: none
+                Definition:
+                Element is completely removed
+                No space is reserved
+            */
+
+            background-color: red;
+            /* Background color */
+        }
+
+        /* 
+            BOX 3
+            Default static position
+        */
+        #box3{
+            background-color: blue;
+            /* Background color */
+        }
+
+        /* 
+            BOX 4
+            Default static position
+        */
+        #box4{
+            background-color: yellow;
+            /* Background color */
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 
+        BODY
+        Contains all visible content
+    -->
+
+    <!-- 
+        BOX 1
+        Positioned and layered using z-index
+    -->
+    <div class="box" id="box1"></div>
+
+    <!-- 
+        BOX 2
+        Positioned slightly lower with lower z-index
+    -->
+    <div class="box" id="box2"></div>
+
+    <!-- 
+        BOX 3
+        Normal flow (static position)
+    -->
+    <div class="box" id="box3"></div>
+
+    <!-- 
+        BOX 4
+        Normal flow (static position)
+    -->
+    <div class="box" id="box4"></div>
+
+</body>
+</html>
+
+<!-- 
+    DEFINITIONS SUMMARY (FOR REVISION):
+
+    position:
+    Controls how an element is positioned
+
+    relative:
+    Positioned relative to its normal position
+
+    z-index:
+    Controls stacking order of positioned elements
+
+    visibility: hidden:
+    Element invisible but space remains
+
+    display: none:
+    Element completely removed from layout
+
+    stacking context:
+    Order in which elements overlap
+
+    IMPORTANT:
+    z-index works only on positioned elements
+-->

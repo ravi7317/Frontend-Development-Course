@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+    ATTRIBUTE SELECTORS & :nth-child() — COMPLETE NOTES
+    ============================================================
+
+    TOPIC OVERVIEW:
+    This example demonstrates:
+    1. Attribute selectors in CSS
+    2. :nth-child() pseudo-class
+    3. How CSS targets elements based on attributes and position
+
+    WHY THIS IS IMPORTANT:
+    - Attribute selectors are heavily used in form styling
+    - :nth-child() is useful for lists, tables, rows, and patterns
+    - These selectors help avoid extra classes in HTML
+
+    ============================================================
+-->
+
+<html lang="en">
+<!-- Root element of the document -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Defines character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required for responsive layouts -->
+
+    <title>Attribute and nth-child Pseudo Selector</title>
+
+    <style>
+        /*
+            ================================
+            CONTAINER STYLING
+            ================================
+            Centers content and limits width
+        */
+        .container{
+            margin: auto;          /* Centers container horizontally */
+            width: 230px;          /* Fixed width for demo purpose */
+            display: block;
+        }
+
+        /*
+            ================================
+            INPUT BASE STYLING
+            ================================
+            Applies to all input elements
+        */
+        input{
+            display: block;        /* Each input appears on a new line */
+            margin-bottom: 10px;   /* Space between inputs */
+        }
+
+        /*
+            ================================
+            ATTRIBUTE SELECTOR — TYPE TEXT
+            ================================
+            Syntax:
+            element[attribute="value"]
+
+            Selects all input elements
+            whose type attribute equals "text"
+        */
+        input[type="text"]{
+            padding: 10px;
+            border: 2px solid red;
+        }
+
+        /*
+            ================================
+            ATTRIBUTE SELECTOR — TARGET PRESENT
+            ================================
+            Selects all anchor (<a>) elements
+            that contain a target attribute
+        */
+        a[target]{
+            font-size: 30px;
+            color: violet;
+        }
+
+        /*
+            ================================
+            ATTRIBUTE SELECTOR — SPECIFIC VALUE
+            ================================
+            Selects anchor elements where
+            target="_self"
+        */
+        a[target="_self"]{
+            font-size: 30px;
+            color: blue;
+        }
+
+        /*
+            ================================
+            ATTRIBUTE SELECTOR — TYPE EMAIL
+            ================================
+            Styles only email input fields
+        */
+        input[type="email"]{
+            border: 2px solid red;
+            color: palegreen;
+        }
+
+        /*
+            ================================
+            :nth-child() PSEUDO-CLASS
+            ================================
+            Definition:
+            Selects elements based on their
+            position among siblings
+
+            Counting starts from 1 (NOT 0)
+        */
+
+        /* Selects the 1st list item */
+        li:nth-child(1){
+            color: maroon;
+        }
+
+        /* Selects the 3rd list item */
+        li:nth-child(3){
+            color: aqua;
+        }
+
+        /* Selects the 4th list item */
+        li:nth-child(4){
+            color: brown;
+        }
+
+        /*
+            OTHER COMMON nth-child PATTERNS:
+
+            li:nth-child(odd)   → Selects odd items
+            li:nth-child(even)  → Selects even items
+            li:nth-child(2n)    → Every second item
+            li:nth-child(2n+1)  → Odd items
+        */
+
+    </style>
+</head>
+
+<body>
+    <!--
+        ================================
+        BODY CONTENT
+        ================================
+    -->
+
+    <div class="container">
+
+        <!-- Anchor with target="_blank"
+             Styled by a[target] -->
+        <h1>
+            <a href="https://google.com" target="_blank">
+                Go to Google
+            </a>
+        </h1>
+
+        <!-- Anchor with target="_self"
+             Styled by a[target="_self"] -->
+        <h1>
+            <a href="https://facebook.com" target="_self">
+                Go to Facebook
+            </a>
+        </h1>
+
+        <!--
+            ================================
+            FORM SECTION
+            ================================
+        -->
+        <form class="form-control">
+
+            <label for="name">Name</label>
+            <!-- Styled by input[type="text"] -->
+            <input type="text" id="name" placeholder="Enter your name">
+
+            <label for="password">Password</label>
+            <!-- No attribute selector applied -->
+            <input type="password" id="password" placeholder="Enter your password">
+
+            <label for="email">Email</label>
+            <!-- Styled by input[type="email"] -->
+            <input type="email" id="email" placeholder="Enter your email">
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+        <!--
+            ================================
+            LIST FOR nth-child DEMO
+            ================================
+        -->
+        <ul>
+            <li class="item" id="item-1">First</li>
+            <li class="item" id="item-2">Second</li>
+            <li class="item" id="item-3">Third</li>
+            <li class="item" id="item-4">Fourth</li>
+        </ul>
+
+    </div>
+</body>
+</html>
+
+<!--
+    ============================================================
+    QUICK REVISION NOTES
+    ============================================================
+
+    ATTRIBUTE SELECTOR:
+    Selects elements based on attributes.
+    Example:
+    input[type="text"]
+    a[target]
+
+    ATTRIBUTE VALUE SELECTOR:
+    Selects elements with a specific attribute value.
+    Example:
+    a[target="_self"]
+
+    :nth-child():
+    Selects elements based on position among siblings.
+
+    IMPORTANT RULES:
+    ✔ Counting starts from 1
+    ✔ Whitespace in attribute values breaks selectors
+    ✔ Attribute selectors reduce need for extra classes
+
+    INTERVIEW ONE-LINER:
+    Attribute selectors target elements using HTML attributes,
+    while :nth-child() selects elements based on their position
+    within the parent.
+-->

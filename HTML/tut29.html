@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- 
+    ================================
+    RESPONSIVE DESIGN — COMPLETE NOTES
+    ================================
+
+    RESPONSIVE WEB DESIGN (RWD):
+    Responsive design is a technique that allows a website to adapt
+    automatically to different screen sizes, devices, and resolutions.
+
+    WHY RESPONSIVE DESIGN IS IMPORTANT:
+    1. There are endless devices and screen sizes.
+    2. Designing separately for each device is impossible.
+    3. Responsive design is a necessity, not a luxury.
+
+    CORE PILLARS OF RESPONSIVE DESIGN:
+    1. Viewport meta tag
+    2. Flexible layouts (%, vw, vh)
+    3. Responsive units (em, rem)
+    4. CSS Media Queries
+-->
+
+<html lang="en">
+<!-- Root element of the document, language set to English -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures proper character rendering -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        VIEWPORT META TAG (VERY IMPORTANT)
+        - width=device-width → page width equals device width
+        - initial-scale=1.0 → default zoom level
+        Without this, responsive layouts break on mobile devices
+    -->
+
+    <title>Responsive Design</title>
+    <!-- Title shown in browser tab -->
+
+    <style>
+        /* 
+            ROOT ELEMENT (html)
+            Definition:
+            Root font size controls all rem units
+        */
+        html{
+            font-size: 16px;
+            /* 
+                1rem = 16px
+                Using rem makes typography responsive and predictable
+            */
+        }
+
+        /* 
+            CONTAINER
+            Definition:
+            A wrapper that holds content and adapts to screen size
+        */
+        .container{
+            width: 100%;
+            /* Takes full width of the screen */
+
+            max-width: 600px;
+            /* Limits width on large screens */
+
+            min-height: 100vh;
+            /* Minimum height = full viewport height */
+
+            border: 2px solid red;
+            /* Border for visualization */
+
+            margin: auto;
+            /* Centers container horizontally */
+
+            padding: 1rem;
+            /* Responsive spacing using rem units */
+        }
+
+        /* 
+            HEADING STYLES
+            Definition:
+            h3 is a block-level element
+        */
+        h3{
+            text-align: center;
+            /* Centers text horizontally */
+
+            font-size: 2rem;
+            /* 
+                2rem = 32px (relative to html font-size)
+                Scales well across devices
+            */
+        }
+
+        /* 
+            MEDIA QUERIES
+            Definition:
+            Media queries apply CSS based on screen conditions
+        */
+        @media (max-width: 600px){
+            /* 
+                This block runs ONLY on screens
+                smaller than or equal to 600px
+            */
+
+            html{
+                font-size: 14px;
+                /* 
+                    Reduces base font size on small screens
+                    Improves readability
+                */
+            }
+
+            h3{
+                font-size: 1.5rem;
+                /* Smaller heading size for mobile */
+            }
+        }
+
+        /*
+            RESPONSIVE UNITS SUMMARY:
+
+            px  → fixed (not responsive)
+            %   → relative to parent
+            vw  → viewport width (1vw = 1% of screen width)
+            vh  → viewport height (1vh = 1% of screen height)
+            em  → relative to parent font size
+            rem → relative to root font size (recommended)
+
+            BEST PRACTICE:
+            - Use rem for font sizes
+            - Use % / vw / vh for layout
+            - Avoid fixed widths and heights
+        */
+    </style>
+</head>
+
+<body>
+    <!-- 
+        BODY
+        Contains all visible page content
+    -->
+
+    <div class="container">
+        <!-- Responsive container -->
+
+        <h3>This is first heading</h3>
+        <!-- Responsive heading using rem -->
+
+        <h3>This is second heading</h3>
+        <!-- Adapts size based on screen width -->
+
+        <h3>This is third heading</h3>
+        <!-- Same responsive behavior -->
+    </div>
+
+</body>
+</html>
+
+<!-- 
+    ================================
+    FINAL REVISION NOTES
+    ================================
+
+    RESPONSIVE DESIGN:
+    A method to make websites work on all devices.
+
+    VIEWPORT:
+    Controls page scaling on mobile devices.
+
+    MEDIA QUERIES:
+    Apply styles conditionally based on screen size.
+
+    REM UNITS:
+    Scale consistently across devices.
+
+    BEST PRACTICES:
+    ✔ Use max-width instead of fixed width
+    ✔ Avoid fixed heights
+    ✔ Use Flexbox/Grid for layout
+    ✔ Always test on mobile view
+
+    INTERVIEW ONE-LINER:
+    Responsive design adapts layouts to different devices using flexible units,
+    viewport meta tag, and media queries.
+-->

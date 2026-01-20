@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+    Informs the browser that this is an HTML5 document
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the document
+    lang="en" defines English language
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding
+        Ensures proper rendering of text
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Makes layout responsive on different screen sizes
+    -->
+
+    <title>Flex tutorial</title>
+    <!-- Page title -->
+
+    <!-- 
+        FLEXBOX NOTES (THEORY):
+        1. Flexbox is a one-dimensional layout system
+           (row OR column at a time)
+        2. Used to align and distribute items inside a container
+        3. Flexbox = Flexible + Box
+    -->
+
+    <style>
+        /* 
+            FLEX CONTAINER
+            Definition:
+            The parent element that holds flex items
+        */
+        .container{
+            height: 300px;
+            /* 
+                FIXED HEIGHT (NOT RESPONSIVE)
+                Better practice: remove height or use min-height
+            */
+
+            width: 100%;
+            /* Takes full width of parent */
+
+            border: 2px solid black;
+            /* Border around container */
+
+            /* 
+                display: flex
+                Definition:
+                Turns this element into a flex container
+            */
+            display: flex;
+
+            /* 
+                FLEX DIRECTION
+                Definition:
+                Defines the main axis direction
+            */
+            flex-direction: row;
+            /* Default value */
+
+            /* 
+                flex-direction: column;
+                flex-direction: row-reverse;
+                flex-direction: column-reverse;
+            */
+
+            /* 
+                FLEX WRAP
+                Definition:
+                Controls whether items wrap or stay on one line
+            */
+            flex-wrap: wrap;
+            /* default is nowrap */
+
+            /* 
+                flex-flow
+                Shorthand for flex-direction + flex-wrap
+                Example: flex-flow: row wrap;
+            */
+
+            /* 
+                JUSTIFY-CONTENT
+                Definition:
+                Aligns items along the main axis (horizontal in row)
+            */
+            /*
+            justify-content: center;
+            justify-content: space-between;
+            justify-content: space-evenly;
+            justify-content: space-around;
+            */
+
+            /* 
+                ALIGN-ITEMS
+                Definition:
+                Aligns items along the cross axis (vertical in row)
+            */
+            /*
+            align-items: center;
+            align-items: flex-start;
+            align-items: flex-end;
+            align-items: stretch;
+            */
+
+            /* 
+                ISSUE:
+                flex-direction is written again below
+                This OVERRIDES the earlier row value
+            */
+            flex-direction: column;
+            /* Final applied value is column */
+        }
+
+        /* 
+            FLEX ITEM
+            Definition:
+            Direct child of a flex container
+        */
+        .item{
+            width: 150px;
+            /* Base width */
+
+            height: 150px;
+            /* Base height */
+
+            background-color: tomato;
+            /* Background color */
+
+            border: 2px solid green;
+            /* Border */
+
+            margin: 10px;
+            /* Space outside item */
+
+            padding: 3px;
+            /* Space inside item */
+        }
+
+        /* 
+            FLEX ITEM 1
+        */
+        #item-1{
+            /* 
+                flex-grow
+                Definition:
+                Controls how much an item grows relative to others
+            */
+            flex-grow: 3;
+            /* Item 1 grows more than others */
+        }
+
+        /* 
+            FLEX ITEM 2
+        */
+        #item-2{
+            /* 
+                flex-basis
+                Definition:
+                Sets initial size before grow/shrink
+            */
+
+            flex-basis: 120px;
+
+            /* 
+                IMPORTANT:
+                - If flex-direction is row → flex-basis controls width
+                - If flex-direction is column → flex-basis controls height
+            */
+        }
+
+        /* 
+            FLEX ITEM 3
+        */
+        #item-3{
+            /* 
+                align-self
+                Definition:
+                Overrides align-items for a single item
+            */
+
+            /* ISSUE:
+               align-self written multiple times
+               Only the LAST one applies
+            */
+
+            align-self: flex-start;
+            align-self: flex-end;
+            align-self: center;
+            /* Final applied value is center */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page heading -->
+    <h3>This is Flexbox Tutorial</h3>
+
+    <!-- FLEX CONTAINER -->
+    <div class="container">
+
+        <!-- FLEX ITEMS -->
+        <div class="item" id="item-1">First Box</div>
+        <div class="item" id="item-2">Second Box</div>
+        <div class="item" id="item-3">Third Box</div>
+
+        <!-- 
+            Additional items (commented out)
+            Flexbox automatically adjusts layout
+        -->
+        <!--
+        <div class="item" id="item-4">Fourth Box</div>
+        <div class="item" id="item-5">Fifth Box</div>
+        <div class="item" id="item-6">Sixth Box</div>
+        -->
+    </div>
+</body>
+</html>
+
+<!-- 
+    DEFINITIONS SUMMARY (REVISION):
+
+    Flexbox:
+    One-dimensional layout system for rows or columns
+
+    Flex Container:
+    Parent element with display: flex
+
+    Flex Item:
+    Direct child of flex container
+
+    flex-direction:
+    Sets main axis direction (row / column)
+
+    flex-wrap:
+    Allows items to wrap to next line
+
+    justify-content:
+    Aligns items on main axis
+
+    align-items:
+    Aligns items on cross axis
+
+    align-self:
+    Aligns a single flex item
+
+    flex-grow:
+    Controls how much an item grows
+
+    flex-basis:
+    Initial size of flex item
+
+    IMPORTANT RULE:
+    Last declared CSS property always wins
+-->

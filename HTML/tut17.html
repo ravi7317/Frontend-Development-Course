@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Declares HTML5 document -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Supports all characters -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Makes the page responsive -->
+
+    <title>Css Fonts</title>
+
+    <!-- 
+        IMPORTING GOOGLE FONT (WEB FONT)
+        This downloads the Roboto font from Google servers
+    -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+      /* -------- PARAGRAPH STYLING -------- */
+      p {
+        /* 
+                font-family:
+                - Browser tries Roboto first
+                - If not available, falls back to other fonts
+                - This is called a font stack
+            */
+        font-family: "Roboto", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+        /* font-size: controls text size */
+        /* 1px = 1/96th of an inch */
+        font-size: 20px;
+
+        /* 
+                line-height:
+                - Space between lines
+                - em is relative to font-size
+                - 2.3em = 2.3 × font-size
+            */
+        line-height: 2.3em;
+      }
+
+      /* -------- SPAN STYLING -------- */
+      span {
+        font-weight: bold;
+        /* Makes text bold */
+
+        font-style: italic;
+        /* Makes text italic */
+      }
+    </style>
+
+    <!-- 
+        Web Safe Fonts:
+        Fonts available on most systems (Arial, Times New Roman)
+        
+        Web Fonts:
+        Fonts downloaded from internet (Google Fonts)
+    -->
+  </head>
+
+  <body>
+    <h3>Css Fonts</h3>
+    <!-- Heading element -->
+
+    <p>
+      Lets play with fonts.
+      <span>Ravi</span>
+      It is very exciting
+    </p>
+    <!-- 
+        Paragraph uses:
+        - Google Font (Roboto)
+        - Increased font size
+        - Increased line height
+        
+        Span text:
+        - Bold
+        - Italic
+    -->
+  </body>
+</html>

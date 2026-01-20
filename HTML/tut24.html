@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+    Informs the browser that this page uses HTML5
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the HTML document
+    lang="en" specifies English language
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding
+        Ensures all characters display correctly
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Makes the layout responsive on different screen sizes
+    -->
+
+    <title>CSS Display property</title>
+    <!-- 
+        Title displayed on browser tab
+    -->
+
+    <style>
+        /* 
+            UNIVERSAL SELECTOR (*)
+            Applies styles to all elements
+        */
+        *{
+            box-sizing: border-box;
+            /* 
+                box-sizing: border-box
+                Definition:
+                Width and height include padding and border
+                Prevents layout overflow
+            */
+        }
+
+        /* 
+            HEADER ELEMENT
+            Definition:
+            Header is a block-level element
+            It always starts on a new line
+        */
+        header{
+            border: 2px solid red;
+            /* Border around header */
+
+            margin: auto;
+            /* Centers header horizontally */
+
+            width: 1200px;
+            /* Fixed width */
+        }
+
+        /* 
+            IMAGE ELEMENT
+            Definition:
+            img is inline by default
+            display: block makes it block-level
+        */
+        img{
+            margin: auto;
+            /* Centers image horizontally */
+
+            display: block;
+            /* Converts inline element to block */
+
+            width: 34px;
+            /* Image width */
+        }
+
+        /* 
+            HEADING h3
+            Definition:
+            Block-level heading element
+        */
+        h3{
+            text-align: center;
+            /* Centers text */
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Font family */
+
+            margin: 0px;
+            /* Removes default margin */
+        }
+
+        /* 
+            BOX CLASS
+            Definition:
+            A reusable content box
+        */
+        .box{
+            border: 4px solid green;
+            /* Border around box */
+
+            background-color: gray;
+            /* Background color */
+
+            margin: 4px;
+            /* Space outside box */
+
+            padding: 23px;
+            /* Space inside box */
+
+            display: inline-block;
+            /* 
+                inline-block definition:
+                - Elements stay on the same line
+                - Width, height, margin, padding work
+            */
+
+            width: 30%;
+            /* Each box takes 30% width */
+
+            box-sizing: border-box;
+            /* Includes padding & border in width */
+        }
+
+        /* 
+            CONTAINER CLASS
+            Definition:
+            Wrapper that holds multiple boxes
+        */
+        .container{
+            margin: auto;
+            /* Centers container */
+
+            width: 1200px;
+            /* Fixed container width */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        BODY
+        Contains all visible content
+    -->
+
+    <!-- HEADER SECTION -->
+    <header class="Top">
+        <!-- Image inside header -->
+        <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHlYHXNv4EXlQ3RRgvJDU-jD42fTvTIkcmoQ&s" 
+            alt="Ravi Image">
+        
+        <!-- Heading text -->
+        <h3>Welcome to Ravi Block</h3>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- 
+            All boxes are inside ONE container
+            This allows inline-block alignment
+        -->
+
+        <!-- FIRST BOX -->
+        <div class="box">
+            <h4 class="heading">Heading</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Tenetur dolor, nam enim aliquid cumque sunt autem.
+            </p>
+        </div>
+
+        <!-- SECOND BOX -->
+        <div class="box">
+            <h4 class="heading">Heading</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Tenetur dolor, nam enim aliquid cumque sunt autem.
+            </p>
+        </div>
+
+        <!-- THIRD BOX -->
+        <div class="box">
+            <h4 class="heading">Heading</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Tenetur dolor, nam enim aliquid cumque sunt autem.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<!-- 
+    DEFINITIONS (IN COMMENTS):
+
+    Block Element:
+    Takes full width and starts on a new line
+    Example: div, header, h1-h6, p
+
+    Inline Element:
+    Takes only required width and stays in same line
+    Example: span, a, img (by default)
+
+    Inline-block:
+    Behaves like inline but allows width and height
+    Used for layout alignment
+
+    Container:
+    Parent wrapper used to align child elements
+
+    Box Model:
+    Content → Padding → Border → Margin
+-->

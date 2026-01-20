@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array, Objects & Basics (Full Notes)</title>
+</head>
+<body>
+
+    <!-- ===================== HTML / DOM ===================== -->
+    <!-- DOM (Document Object Model):
+         The browser converts HTML into an object structure called DOM.
+         JavaScript uses DOM to access and manipulate HTML elements.
+         Example: document.querySelector(".container") -->
+
+    <div class="container">Simple HTML</div>
+
+    <script>
+        /* =====================================================
+           JAVASCRIPT BASIC DATA TYPES
+           ===================================================== */
+
+        // Number → stores numeric values
+        let myvar = 34;
+
+        // String → stores text (inside quotes)
+        let myvar2 = "string";
+
+        // Boolean → true or false
+        let myvar3 = true;
+
+        // null → intentional empty value
+        let myvar4 = null;
+
+        // undefined → declared but value not assigned
+        let myvar5 = undefined;
+
+        // typeof operator → tells data type
+        // console.log(typeof myvar);
+
+        /* =====================================================
+           OBJECTS
+           ===================================================== */
+
+        // Object:
+        // Used to store related data in key-value pairs
+        // Keys = properties, Values = data
+
+        let employee = {
+            name: "Ravi",
+            salary: 10,
+            channel1: "CodeWithHarry",
+            channel2: "Programming",
+            "channel 3": "Data Structure" // space allowed only with quotes
+        };
+
+        // Access object values
+        // employee.name
+        // employee["channel 3"]
+
+        // console.log(employee);
+
+        /* =====================================================
+           ARRAYS
+           ===================================================== */
+
+        // Array:
+        // Used to store multiple values in a single variable
+        // Index starts from 0
+
+        let arr = [1, 2, 3, 4, "Harry", true];
+
+        // Access elements using index
+        // console.log(arr[0]); // 1
+        // console.log(arr[4]); // Harry
+
+        /* =====================================================
+           ARRAY USING new KEYWORD
+           ===================================================== */
+
+        // If ONE number is passed → creates empty array of that length
+        let name = new Array(23);
+
+        // name now has length 23 but no values
+        console.log(name);
+        console.log(name.length);
+
+        // If multiple values are passed → normal array
+        // let name = new Array(10, 1, 2, 3, "Ravi");
+
+        /* =====================================================
+           IMPORTANT ARRAY METHODS
+           ===================================================== */
+
+        // push() → add element at end
+        name.push("this is pushed");
+
+        // pop() → remove last element
+        // name.pop();
+
+        // unshift() → add element at start
+        // name.unshift("start");
+
+        // shift() → remove element from start
+        // name.shift();
+
+        // sort() → sorts array (works best with strings)
+        name.sort();
+
+        // length → total elements
+        console.log(name.length);
+
+        console.log(name);
+
+        /* =====================================================
+           LOOPING THROUGH ARRAY (IMPORTANT)
+           ===================================================== */
+
+        // for loop
+        // for (let i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+
+        // forEach loop
+        // arr.forEach(function(element){
+        //     console.log(element);
+        // });
+
+        /* =====================================================
+           DOM BASIC OPERATIONS (INTRO)
+           ===================================================== */
+
+        // Selecting element using class
+        let container = document.querySelector(".container");
+
+        // Changing text inside HTML element
+        container.innerHTML = "Text changed using JavaScript";
+
+        // Changing style using JS
+        container.style.color = "blue";
+        container.style.fontSize = "20px";
+
+        /* =====================================================
+           IMPORTANT INTERVIEW NOTES
+           ===================================================== */
+
+        // Arrays are objects in JavaScript
+        // typeof [] → object
+
+        // Objects store related data
+        // Arrays store ordered data
+
+        // Use const for arrays/objects when reference should not change
+        // const arr = [1,2,3];  ✔ allowed
+        // arr = [4,5]; ❌ not allowed
+        // arr.push(4); ✔ allowed
+
+    </script>
+</body>
+</html>

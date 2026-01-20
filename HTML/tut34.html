@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+    CSS BOX-SHADOW & TEXT-SHADOW — COMPLETE NOTES
+    ============================================================
+
+    TOPIC OVERVIEW:
+    This example demonstrates:
+    1. box-shadow property
+    2. inset shadows
+    3. multiple shadows
+    4. text-shadow property
+    5. shadow syntax and parameters
+
+    SHADOWS IN CSS:
+    Shadows are used to add depth, emphasis, and visual hierarchy
+    to elements and text.
+
+    TYPES OF SHADOWS:
+    1. box-shadow  → shadow around elements (div, card, box)
+    2. text-shadow → shadow behind text
+-->
+
+<html lang="en">
+<!-- Root element of the HTML document -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes layout responsive -->
+
+    <title>Box shadow and text shadow</title>
+
+    <style>
+        /*
+            =========================================
+            CONTAINER
+            =========================================
+            Flexbox container to align cards horizontally
+        */
+        .container{
+            display: flex;
+            /* Places cards in a row */
+        }
+
+        /*
+            =========================================
+            CARD STYLING
+            =========================================
+        */
+        .card{
+            padding: 23px 12px;
+            /* Space inside the card */
+
+            margin: 23px 12px;
+            /* Space outside the card */
+
+            background-color: aqua;
+            /* Card background */
+
+            /*
+                =========================================
+                BOX-SHADOW PROPERTY
+                =========================================
+
+                BASIC SYNTAX:
+                box-shadow: offset-x offset-y color;
+
+                EXTENDED SYNTAX:
+                box-shadow: offset-x offset-y blur-radius spread-radius color;
+
+                PARAMETERS EXPLANATION:
+                offset-x → horizontal movement ( + right, - left )
+                offset-y → vertical movement ( + down, - up )
+                blur-radius → softness of shadow
+                spread-radius → size of shadow
+                color → shadow color
+            */
+
+            /* Multiple shadows can be applied using comma separation */
+            box-shadow:
+                3px 5px green,        /* first shadow */
+                4px 6px red;          /* second shadow */
+        }
+
+        /*
+            =========================================
+            INSET SHADOW (COMMENTED EXAMPLE)
+            =========================================
+            inset creates shadow inside the element
+        */
+        /*
+        .card{
+            box-shadow: inset 2px 5px green;
+        }
+        */
+
+        /*
+            =========================================
+            TEXT SHADOW
+            =========================================
+        */
+        .card h2{
+            /*
+                text-shadow syntax:
+                text-shadow: offset-x offset-y blur-radius color;
+            */
+            text-shadow: 3px 2px 2px white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        =========================================
+        MAIN CONTENT
+        =========================================
+    -->
+    <div class="container">
+
+        <!-- CARD 1 -->
+        <div class="card" id="card-1">
+            <h2>This is C++ course</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Beatae labore et soluta ratione? Hic quibusdam, quas voluptate
+                voluptates laudantium aspernatur mollitia iste eligendi.
+            </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card" id="card-2">
+            <h2>This is HTML course</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt, officia. Reprehenderit nam aperiam debitis omnis
+                modi, enim placeat vero molestiae.
+            </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card" id="card-3">
+            <h2>Card 3</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt, officia. Reprehenderit nam aperiam debitis omnis
+                modi, enim placeat vero molestiae.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<!--
+    ============================================================
+    QUICK REVISION NOTES
+    ============================================================
+
+    box-shadow:
+    Adds shadow around an element.
+
+    box-shadow values:
+    offset-x | offset-y | blur | spread | color
+
+    inset:
+    Creates shadow inside the element.
+
+    multiple shadows:
+    Separate multiple shadows using commas.
+
+    text-shadow:
+    Adds shadow behind text.
+
+    text-shadow values:
+    offset-x | offset-y | blur | color
+
+    POSITIVE vs NEGATIVE VALUES:
+    +x → right, -x → left
+    +y → down,  -y → up
+
+    BEST PRACTICES:
+    ✔ Use subtle shadows
+    ✔ Avoid heavy blur for performance
+    ✔ Use rgba() for soft shadows
+
+    INTERVIEW ONE-LINER:
+    box-shadow adds depth to elements, while text-shadow enhances text
+    readability and visual emphasis.
+-->

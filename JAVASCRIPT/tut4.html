@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+-->
+
+<html lang="en">
+<!-- 
+    Root element
+    - lang="en" specifies English language
+-->
+
+<head>
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive design support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>JavaScript | Strings and Methods</title>
+</head>
+
+<body>
+    <!-- Main container -->
+    <div class="container">
+
+        <!-- Heading -->
+        <h1>This is a heading</h1>
+
+        <!-- Empty div where content will be inserted using JavaScript -->
+        <div id="content"></div>
+
+        <!-- Paragraph text -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+    </div>
+
+    <script>
+        // ==================================
+        // JAVASCRIPT STRINGS
+        // ==================================
+
+        // String is a sequence of characters
+        // Strings can be written using:
+        // 1. Double quotes ""
+        // 2. Single quotes ''
+        // 3. Backticks `` (template literals)
+
+        var string = "this ";        // double-quoted string
+        var name = 'ravi ';          // single-quoted string
+        var channel = 'codewithharry';
+        var message = 'Ravi is a good boy';
+
+        // String concatenation using + operator
+        console.log(string + name + message);
+
+        // ==================================
+        // TEMPLATE LITERALS
+        // ==================================
+
+        // Template literals use backticks (` `)
+        // They allow:
+        // - Variable interpolation using ${}
+        // - Multi-line strings
+        // - Easy mixing of quotes
+
+        var temp = `${name} is a 'nice' person "and" he has a channel called ${channel}`;
+        console.log(temp);
+
+        // ==================================
+        // STRING LENGTH PROPERTY
+        // ==================================
+
+        // .length returns the number of characters in a string
+        var len = name.length;
+        console.log(`Length of name is ${len}`);
+
+        // ==================================
+        // ESCAPE SEQUENCES IN STRINGS
+        // ==================================
+
+        // \\  → backslash
+        // \n  → new line
+        // \t  → tab space
+        // \b  → backspace
+
+        console.log("Hello\\ world\nRavi\ttend\b");
+
+        // ==================================
+        // STRING OBJECT (NOT RECOMMENDED)
+        // ==================================
+
+        // new String() creates a String object
+        // It is slower and generally avoided
+        // Prefer primitive strings instead
+
+        var y = new String("this");
+        console.log(y);
+
+        // ==================================
+        // DOM MANIPULATION WITH STRINGS
+        // ==================================
+
+        // document.getElementById() selects an HTML element by ID
+        // innerHTML is used to insert HTML content dynamically
+
+
+        document.getElementById('content').innerHTML =
+            '<h3>This is an h3 heading</h3>';
+    </script>
+</body>
+</html>

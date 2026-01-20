@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+    Tells the browser this is an HTML5 page
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the HTML document
+    lang="en" specifies language as English
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding
+        Ensures all characters display correctly
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Makes the page responsive on mobile devices
+    -->
+
+    <title>Alignment</title>
+    <!-- 
+        Title shown in browser tab
+    -->
+
+    <!-- 
+        Importing Google Font (Web Font)
+        Web fonts are downloaded from the internet
+    -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+
+    <style>
+        /* 
+            UNIVERSAL SELECTOR (*)
+            Applies styles to ALL elements
+        */
+        *{
+            box-sizing: border-box;
+            /* 
+                box-sizing: border-box
+                Definition:
+                Width and height include padding and border
+                Prevents layout breaking
+            */
+        }
+
+        /* 
+            BODY STYLING
+            Body is the visible part of the webpage
+        */
+        body{
+            font-family: system-ui, sans-serif;
+            /* 
+                font-family:
+                Defines the font style of text
+                Uses system default fonts
+            */
+        }
+
+        /* 
+            CONTAINER
+            Definition:
+            A container is a wrapper that holds and aligns content
+        */
+        .container{
+            width: 900px;
+            /* Fixed width container */
+
+            border: 3px solid purple;
+            /* Border around container */
+
+            margin: auto;
+            /* 
+                margin: auto
+                Centers the container horizontally
+            */
+
+            background-color: aqua;
+            /* Background color of container */
+        }
+
+        /* 
+            ITEM BOX
+            Definition:
+            Reusable content box inside container
+        */
+        .item{
+            border: 3px solid gray;
+            /* Border around each item */
+
+            margin: 12px 3px;
+            /* 
+                Margin:
+                Space outside the element
+            */
+
+            padding: 12px 3px;
+            /* 
+                Padding:
+                Space between content and border
+            */
+
+            background-color: rgb(248, 238, 238);
+            /* Background color of item */
+        }
+
+        /* 
+            FLOAT PROPERTY
+            Definition:
+            Float positions an element to left or right
+        */
+
+        #fruits{
+            float: left;
+            /* Moves the element to the left */
+
+            width: 48%;
+            /* Takes 48% width of container */
+        }
+
+        #computer{
+            float: right;
+            /* Moves the element to the right */
+
+            width: 48%;
+        }
+
+        /* 
+            CLEAR PROPERTY
+            Definition:
+            clear stops elements from wrapping around floated elements
+        */
+        #stationary{
+            clear: both;
+            /* Moves below left and right floated elements */
+
+            width: 97%;
+        }
+
+        /* 
+            HEADING ALIGNMENT
+        */
+        h1{
+            margin: 23px auto;
+            /* Centers heading horizontally */
+
+            width: 455px;
+        }
+
+        /* 
+            TEXT ALIGNMENT
+            Definition:
+            Controls horizontal alignment of text
+        */
+        p, h3{
+            /* 
+                left | right | center | justify
+            */
+            text-align: justify;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        BODY CONTENT
+        Everything visible on the page
+    -->
+
+    <div class="container">
+        <!-- Main container -->
+
+        <h1>Welcome to my store</h1>
+        <!-- Main heading -->
+
+        <!-- FRUITS SECTION -->
+        <div id="fruits" class="item">
+            <h3>Fruits</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+
+        <!-- COMPUTER SECTION -->
+        <div id="computer" class="item">
+            <h3>Computer</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+
+        <!-- STATIONARY SECTION -->
+        <div id="stationary" class="item">
+            <h3>Stationary</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+
+        <!-- GLASSES SECTION -->
+        <div id="glass" class="item">
+            <h3>Glasses</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<!-- 
+    SUMMARY DEFINITIONS:
+
+    Container:
+    A wrapper element used to align content
+
+    Float:
+    Positions elements left or right
+
+    Clear:
+    Prevents wrapping around floated elements
+
+    Margin:
+    Space outside an element
+
+    Padding:
+    Space inside an element
+
+    Box Model:
+    Content → Padding → Border → Margin
+
+    NOTE:
+    Float is an old layout method
+    Modern layouts use Flexbox or Grid
+-->

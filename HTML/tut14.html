@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- Declares HTML5 document -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Supports all characters -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes page responsive -->
+
+    <title>CSS Selector</title>
+
+    <style>
+        /* -------- ELEMENT SELECTOR -------- */
+        /* This selector targets ALL <p> elements */
+        p{
+            border: 2px solid red;
+        }
+
+        /* -------- ID SELECTOR -------- */
+        /* #firstPara targets the element with id="firstPara" */
+        /* id must be unique */
+        #firstPara{
+            color: blue;
+        }
+
+        /* -------- CLASS SELECTOR -------- */
+        /* .redelement targets all elements having class="redelement" */
+        .redelement{
+            color: red;
+        }
+
+        /* -------- MULTIPLE CLASS SELECTOR -------- */
+        /* .bgblue applies background + text color */
+        /* This class can be reused */
+        .bgblue{
+            color: yellow;
+            background-color: aqua;
+        }
+
+        /* -------- GROUP SELECTOR -------- */
+        /* This selector applies styles to BOTH span and footer */
+        span, footer{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>Css Selector</h3>
+    <!-- Heading element -->
+
+    <!-- Paragraph with ID selector -->
+    <p id="firstPara">
+        This is a simple paragraph to demonstrate css Selector
+    </p>
+    <!-- 
+        This paragraph gets:
+        - border from p selector
+        - blue text from #firstPara
+    -->
+
+    <!-- Paragraph with multiple classes -->
+    <p id="secodPara" class="redelement bgblue">
+        This is another simple paragraph to demonstrate css Selector
+    </p>
+    <!-- 
+        This paragraph gets:
+        - border from p selector
+        - red color from .redelement
+        - yellow text + aqua background from .bgblue
+        - id is not used in CSS here
+    -->
+
+    <div>
+        <!-- Paragraph inside div -->
+        <p>
+            This is yet another simple paragraph inside div to demonstrate css Selector
+        </p>
+        <!-- 
+            Still affected by:
+            - p selector (border)
+        -->
+    </div>
+
+    <!-- Span element -->
+    <span>this is a span</span>
+    <!-- span gets green background from group selector -->
+
+    <!-- Footer element -->
+    <footer>this is a footer</footer>
+    <!-- footer also gets green background -->
+
+</body>
+</html>

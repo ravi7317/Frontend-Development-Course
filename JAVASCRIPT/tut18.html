@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+
+    <!--
+    JSON = JavaScript Object Notation
+
+    Definition:
+    - JSON is a lightweight data format
+    - Used to store and exchange data
+    - Mostly used in APIs, servers, databases
+    - Language independent but looks like JS objects
+    -->
+</head>
+<body>
+
+    <div class="container">This is my container</div>
+
+    <script>
+        /* =====================================================
+           JSON BASICS
+           ===================================================== */
+
+        /*
+        JSON looks like JavaScript object BUT:
+        - Keys must be in double quotes (in pure JSON)
+        - Values can be string, number, boolean, array, object, null
+        - Functions are NOT allowed
+        */
+
+        /* ===================== JAVASCRIPT OBJECT ===================== */
+
+        let jsonObj = {
+            name: "Harry",
+            channel: "CWH",
+            friend: "Rohan Das",
+            food: "Bhindi"
+        };
+
+        // This is a normal JavaScript object
+        console.log(jsonObj);
+
+        /* =====================================================
+           JSON.stringify()
+           ===================================================== */
+
+        /*
+        JSON.stringify():
+        - Converts JavaScript object into JSON STRING
+        - Used when sending data to server or storing data
+        */
+
+        let myJsonStr = JSON.stringify(jsonObj);
+        console.log(myJsonStr);
+
+        /*
+        Output will be a STRING:
+        '{"name":"Harry","channel":"CWH","friend":"Rohan Das","food":"Bhindi"}'
+        */
+
+        /* =====================================================
+           STRING OPERATIONS ON JSON STRING
+           ===================================================== */
+
+        /*
+        Since JSON.stringify() returns a STRING,
+        we can apply string methods on it
+        */
+
+        myJsonStr = myJsonStr.replace('Harry', 'Ravi');
+        console.log(myJsonStr);
+
+        /* =====================================================
+           JSON.parse()
+           ===================================================== */
+
+        /*
+        JSON.parse():
+        - Converts JSON STRING back into JavaScript object
+        - Used when receiving data from server
+        */
+
+        let newJsonObj = JSON.parse(myJsonStr);
+        console.log(newJsonObj);
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. JSON is used for data transfer
+        2. JSON.stringify() → Object to String
+        3. JSON.parse() → String to Object
+        4. JSON cannot store functions or undefined
+        5. JSON keys must be in double quotes
+        6. JSON is heavily used in APIs and backend communication
+        */
+
+        /*
+        REAL-WORLD USE CASE:
+        - Sending form data to server
+        - Fetch API responses
+        - Storing objects in localStorage
+        */
+
+    </script>
+</body>
+</html>

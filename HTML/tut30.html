@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+    MEDIA QUERIES — COMPLETE NOTES (LINE BY LINE, WITH DEFINITIONS)
+    ============================================================
+
+    MEDIA QUERIES:
+    Media Queries are a CSS technique used to apply different styles
+    depending on the device’s screen size or characteristics.
+
+    WHY MEDIA QUERIES ARE USED:
+    1. There are many devices (mobile, tablet, laptop, desktop).
+    2. Each device has a different screen width.
+    3. One fixed design cannot fit all screens.
+    4. Media queries help make websites RESPONSIVE.
+
+    RESPONSIVE DESIGN:
+    Responsive design allows a website to automatically adjust
+    its layout, content, and styles according to the screen size.
+
+    IMPORTANT REQUIREMENT:
+    Media queries work correctly ONLY when the viewport meta tag is present.
+-->
+
+<html lang="en">
+<!-- Root element of the HTML document, language is English -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Character encoding to display text correctly -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        VIEWPORT META TAG (VERY IMPORTANT):
+        - width=device-width → page width matches device width
+        - initial-scale=1.0 → default zoom level
+        Without this, media queries will not behave correctly on mobile
+    -->
+
+    <title>Media Queries</title>
+    <!-- Title displayed on browser tab -->
+
+    <style>
+        /*
+            BASE CLASS FOR ALL BOXES
+            This CSS runs BEFORE media queries
+        */
+        .box{
+            font-size: 22px;
+            /* Sets text size */
+
+            text-align: center;
+            /* Centers text horizontally */
+
+            background-color: red;
+            /* Default background color */
+
+            color: white;
+            /* Text color */
+
+            display: none;
+            /*
+                IMPORTANT CONCEPT:
+                All boxes are hidden by default.
+                Media queries will decide which box to show
+                based on screen size.
+            */
+        }
+
+        /*
+            MEDIA QUERY SYNTAX:
+            @media only screen and (condition) {
+                CSS rules
+            }
+
+            RULES TO REMEMBER:
+            ✔ Space between "only" and "screen"
+            ✔ Space before and after "and"
+        */
+
+        /*
+            MEDIA QUERY 1 — VERY SMALL SCREENS
+            Condition: Screen width is 300px or less
+            Example: Very small mobile devices
+        */
+        @media only screen and (max-width: 300px){
+            #box-1{
+                display: block;
+                /* Shows box-1 */
+
+                background-color: cyan;
+                /* Changes background color */
+            }
+        }
+
+        /*
+            MEDIA QUERY 2 — MOBILE DEVICES
+            Condition: Screen width between 301px and 500px
+        */
+        @media only screen and (min-width: 301px) and (max-width: 500px){
+            #box-2{
+                display: block;
+                /* Shows box-2 */
+
+                background-color: blueviolet;
+            }
+        }
+
+        /*
+            MEDIA QUERY 3 — TABLET / SMALL LAPTOP
+            Condition: Screen width between 501px and 800px
+        */
+        @media only screen and (min-width: 501px) and (max-width: 800px){
+            #box-3{
+                display: block;
+                /* Shows box-3 */
+
+                background-color: green;
+            }
+        }
+
+        /*
+            MEDIA QUERY 4 — DESKTOP / WIDESCREEN
+            Condition: Screen width 801px and above
+        */
+        @media only screen and (min-width: 801px){
+            #box-4{
+                display: block;
+                /* Shows box-4 */
+
+                background-color: skyblue;
+            }
+        }
+
+        /*
+            IMPORTANT NOTES:
+            - Only ONE box is visible at a time
+            - Visibility depends on screen width
+            - Media queries override base CSS
+        */
+    </style>
+</head>
+
+<body>
+    <!--
+        BODY SECTION
+        Each div represents a device category
+    -->
+
+    <!-- Very small mobile device -->
+    <div class="box" id="box-1">
+        Mai ek chhota mobile hoon
+    </div>
+
+    <!-- Mobile / small tablet -->
+    <div class="box" id="box-2">
+        Mai ek tablet hoon
+    </div>
+
+    <!-- Tablet / laptop -->
+    <div class="box" id="box-3">
+        Mai ek computer hoon
+    </div>
+
+    <!-- Desktop / widescreen -->
+    <div class="box" id="box-4">
+        Mai ek widescreen computer hoon
+    </div>
+
+</body>
+</html>
+
+<!--
+    ============================================================
+    MEDIA QUERIES — QUICK REVISION NOTES
+    ============================================================
+
+    Media Query:
+    A CSS rule that applies styles based on screen size.
+
+    max-width:
+    Applies styles up to a certain width.
+
+    min-width:
+    Applies styles from a certain width onward.
+
+    COMMON BREAKPOINTS:
+    ≤ 480px   → Mobile
+    ≤ 768px   → Tablet
+    ≤ 1024px  → Laptop
+    ≥ 1200px  → Desktop
+
+    BEST PRACTICES:
+    ✔ Always use viewport meta tag
+    ✔ Use mobile-first approach when possible
+    ✔ Avoid overlapping width ranges
+    ✔ Test layout on multiple screen sizes
+
+    INTERVIEW ONE-LINER:
+    Media queries help create responsive websites by applying
+    CSS styles based on device screen size.
+-->

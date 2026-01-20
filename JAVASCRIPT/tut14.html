@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript setTimeout and setInterval</title>
+</head>
+<body>
+
+    <!-- Container to display live time -->
+    <div class="container">
+        This is a container
+        <span id="time"></span>
+    </div>
+
+    <script>
+        console.log("This is tutorial 14");
+
+        /* =====================================================
+           setTimeout & clearTimeout
+           ===================================================== */
+
+        /*
+        setTimeout():
+        - Executes a function ONCE after a given time delay
+        - Time is given in milliseconds
+        - 1000 ms = 1 second
+
+        clearTimeout():
+        - Stops the execution of setTimeout
+        */
+
+        function greet(name) {
+            console.log("Hello Good Morning " + name);
+        }
+
+        // Executes greet() ONCE after 5 seconds
+        // setTimeout(greet, 5000, "Ravi");
+
+        // Storing timeout id
+        // let timeoutId = setTimeout(greet, 5000, "Ravi");
+
+        // Cancels the timeout before execution
+        // clearTimeout(timeoutId);
+
+        /* =====================================================
+           setInterval & clearInterval
+           ===================================================== */
+
+        /*
+        setInterval():
+        - Executes a function REPEATEDLY after fixed time interval
+        - Runs continuously until stopped
+
+        clearInterval():
+        - Stops the execution of setInterval
+        */
+
+        // Executes greet() every 1 second
+        // let intervalId = setInterval(greet, 1000, "Ravi");
+
+        // Stops interval execution
+        // clearInterval(intervalId);
+
+        /* =====================================================
+           LIVE CLOCK EXAMPLE (REAL WORLD USE)
+           ===================================================== */
+
+        /*
+        Date object:
+        - Used to work with current date and time
+        */
+
+        function displayTime() {
+
+            // Creating Date object
+            let time = new Date();
+
+            // Printing time in console
+            console.log(time);
+
+            // Displaying time inside HTML element
+            document.getElementById('time').innerHTML = time;
+        }
+
+        // Calling displayTime() every 1 second
+        setInterval(displayTime, 1000);
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. setTimeout → runs function ONCE
+        2. setInterval → runs function REPEATEDLY
+        3. clearTimeout → stops setTimeout
+        4. clearInterval → stops setInterval
+        5. Time is always in milliseconds
+        6. setInterval can cause performance issues if not cleared
+        7. Always store interval/timeout id if you want to stop it
+        */
+
+    </script>
+</body>
+</html>

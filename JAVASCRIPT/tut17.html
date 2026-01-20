@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Object</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>This is Math tutorial</h1>
+    </div>
+
+    <script>
+        /* =====================================================
+           MATH OBJECT IN JAVASCRIPT
+           ===================================================== */
+
+        /*
+        Math:
+        - Math is a built-in JavaScript object
+        - Used for mathematical calculations
+        - Math has ONLY static properties and methods
+        - We do NOT create Math object using new keyword
+        */
+
+        let m = Math;
+        console.log(Math);
+
+        /* ===================== MATH CONSTANTS ===================== */
+
+        // Euler's number
+        console.log("The value of Math.E is", Math.E);
+
+        // Value of PI
+        console.log("The value of Math.PI is", Math.PI);
+
+        // Natural log of 2
+        console.log("The value of Math.LN2 is", Math.LN2);
+
+        // Square root of 1/2
+        console.log("The value of Math.SQRT1_2 is", Math.SQRT1_2);
+
+        // log base 2 of E
+        console.log("The value of Math.LOG2E is", Math.LOG2E);
+
+        // log base 10 of E
+        console.log("The value of Math.LOG10E is", Math.LOG10E);
+
+        /* ===================== ROUNDING METHODS ===================== */
+
+        let a = 56.454;
+        let b = 213.45;
+
+        console.log("The value of a and b is", a, b);
+
+        // round(): rounds to nearest integer
+        console.log("Rounded values are", Math.round(a), Math.round(b));
+
+        // ceil(): rounds UP to nearest integer
+        console.log("Ceil value of 5.8 is", Math.ceil(5.8));
+
+        // floor(): rounds DOWN to nearest integer
+        console.log("Floor value of 9.7 is", Math.floor(9.7));
+
+        /* ===================== POWER & ROOT ===================== */
+
+        // pow(base, exponent)
+        console.log("2 raised to power 3 is", Math.pow(2, 3));
+        console.log("2 raised to power 12 is", Math.pow(2, 12));
+        console.log("1 raised to power 2 is", Math.pow(1, 2));
+
+        // sqrt(): square root
+        console.log("Square root of 36 is", Math.sqrt(36));
+        console.log("Square root of 64 is", Math.sqrt(64));
+        console.log("Square root of 50 is", Math.sqrt(50));
+
+        /* ===================== ABSOLUTE VALUE ===================== */
+
+        // abs(): converts negative value to positive
+        console.log("Absolute value of 5.66 is", Math.abs(5.66));
+        console.log("Absolute value of -5.66 is", Math.abs(-5.66));
+
+        /* ===================== TRIGONOMETRIC FUNCTIONS ===================== */
+
+        /*
+        NOTE:
+        - Trigonometric functions work in RADIANS
+        - PI radians = 180 degrees
+        */
+
+        console.log("Value of sin(PI/2) is", Math.sin(Math.PI / 2));
+        console.log("Value of cos(PI/2) is", Math.cos(Math.PI / 2));
+        console.log("Value of tan(PI/2) is", Math.tan(Math.PI / 2));
+
+        /* ===================== MIN & MAX ===================== */
+
+        // min(): returns smallest value
+        console.log("Minimum value of 4, 5, 6 is", Math.min(4, 5, 6));
+
+        // max(): returns largest value
+        console.log("Maximum value of 4, 5, 6 is", Math.max(4, 5, 6));
+
+        /* ===================== RANDOM NUMBER ===================== */
+
+        /*
+        random():
+        - Generates random number between 0 and 1
+        - 0 inclusive, 1 exclusive
+        */
+
+        console.log("Random number is", Math.random());
+
+        /*
+        Random number between a and b formula:
+        a + (b - a) * Math.random()
+        */
+
+        let a1 = 1;
+        let b1 = 100;
+
+        let r_100 = a1 + (b1 - a1) * Math.random();
+        console.log("Random number between 1 and 100 is", r_100);
+
+        /*
+        To get integer random number:
+        Math.floor(a + (b - a + 1) * Math.random())
+        */
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. Math is NOT a constructor
+        2. All Math methods are static
+        3. Math.random() is most commonly asked
+        4. Trigonometric functions use radians
+        5. Math.floor() used for random integers
+        6. Used in games, animations, calculations
+        */
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
+
+<html lang="en">
+<!-- Root element of the HTML page, language set to English -->
+
+<head>
+    <!-- Head contains metadata (not visible on the page) -->
+
+    <meta charset="UTF-8">
+    <!-- Ensures proper character encoding (supports all characters) -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive on mobile devices -->
+
+    <title>Forms</title>
+    <!-- Title shown on the browser tab -->
+</head>
+
+<body>
+    <!-- Body contains all visible content -->
+
+    <h2>This is HTML Forms tutorial</h2>
+    <!-- Heading for the form section -->
+
+    <form action="backend.php" method="post">
+        <!-- 
+            form tag collects user input
+            action -> where the form data is sent
+            method -> POST hides data from URL (recommended)
+        -->
+
+        <div>
+            <!-- div is a block-level container -->
+
+            <label for="username">Name</label>
+            <!-- label is linked to input using 'for' -->
+
+            <input type="text" name="myname" id="username">
+            <!-- 
+                input field for name
+                type="text" -> text input
+                name -> key sent to backend
+                id -> used by label
+            -->
+        </div>
+
+        <div>
+            <label for="role">Role</label>
+            <input type="text" name="myrole" id="role">
+            <!-- text input for role -->
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="myemail" id="email">
+            <!-- email type provides built-in validation -->
+        </div>
+
+        <div>
+            <label for="date">Date</label>
+            <input type="date" name="mydate" id="date">
+            <!-- date picker input -->
+        </div>
+
+        <div>
+            <label for="bonus">Bonus</label>
+            <input type="number" name="mynumber" id="bonus">
+            <!-- number input accepts only numeric values -->
+        </div>
+
+        <div>
+            <label for="eligibility">Are you eligible</label>
+            <input type="checkbox" name="myeligibility" value="yes" id="eligibility" checked>
+            <!-- 
+                checkbox allows yes/no selection
+                checked -> selected by default
+            -->
+        </div>
+
+        <div>
+            <!-- Gender selection using radio buttons -->
+
+            <label>Gender</label><br>
+
+            <input type="radio" name="mygender" value="male" id="male">
+            <label for="male">Male</label>
+
+            <input type="radio" name="mygender" value="female" id="female">
+            <label for="female">Female</label>
+
+            <input type="radio" name="mygender" value="other" id="other">
+            <label for="other">Other</label>
+
+            <!-- 
+                same name="mygender" groups radios
+                only one option can be selected
+            -->
+        </div>
+
+        <div>
+            <label for="about">Write about yourself</label>
+            <textarea name="mytext" id="about" cols="30" rows="5"></textarea>
+            <!-- textarea allows multi-line text input -->
+        </div>
+
+        <div>
+            <label for="car">Car</label>
+            <select name="mycar" id="car">
+            <option value="Ind">Indica</option>
+            <option value="swt">Swift</option>
+            <option value="bmw">BMW</option>
+            </select>
+            <!-- creating a select button -->
+        </div>
+
+        <div>
+            <!-- Form buttons -->
+
+            <input type="submit" value="Submit Now">
+            <!-- submits form data to backend -->
+
+            <input type="reset" value="Reset">
+            <!-- clears all form fields -->
+        </div>
+
+    </form>
+
+    <form action="backend.php">
+        <label>Gender</label>
+        <div>
+            <input type="radio" name="mygender" id="male">
+            <label for="male">Male</label>
+        
+        <input type="radio" name="mygender" id="female">
+        <label for="female">Female</label></div>
+    </form>
+
+</body>
+</html>

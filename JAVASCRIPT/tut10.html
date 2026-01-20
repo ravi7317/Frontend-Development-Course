@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+</head>
+<body>
+
+    <!-- Simple HTML container -->
+    <div class="container">This Loops</div>
+
+    <script>
+        console.log("This is tutorial 11");
+
+        /* =====================================================
+           LOOPS IN JAVASCRIPT
+           ===================================================== */
+
+        /*
+        Loop:
+        - A loop is used to repeat a block of code
+        - Saves time and avoids writing same code again and again
+        */
+
+        /* ===================== FOR LOOP ===================== */
+
+        /*
+        for loop syntax:
+        for(initialization; condition; increment/decrement){
+            code
+        }
+        */
+
+        // Example:
+        // for (let i = 0; i < 10; i++) {
+        //     console.log(i);
+        // }
+
+        /* ===================== ARRAY ITERATION ===================== */
+
+        let friends = ["Ravi", "Rohan", "Suraj", "Sunny", "Shyam"];
+
+        // Traditional for loop with array
+        // for (let i = 0; i < friends.length; i++) {
+        //     console.log("Hello friend " + friends[i]);
+        // }
+
+        /* ===================== forEach LOOP ===================== */
+
+        /*
+        forEach():
+        - Used ONLY for arrays
+        - Executes function for each element
+        - Cannot be broken using break
+        */
+
+        // friends.forEach(function(element){
+        //     console.log("Hello Friend " + element + " to modern JavaScript");
+        // });
+
+        /* ===================== for...of LOOP ===================== */
+
+        /*
+        for...of:
+        - Used to iterate over arrays, strings
+        - Gives direct VALUE
+        */
+
+        for (let element of friends) {
+            console.log("Hello friend, " + element + " to modern JavaScript");
+        }
+
+        /* ===================== OBJECT ITERATION ===================== */
+
+        /*
+        Objects cannot be looped using for...of
+        We use for...in for objects
+        */
+
+        let employee = {
+            name: "Ravi",
+            salary: "2",
+            channel: "CWH"
+        };
+
+        /*
+        for...in:
+        - Used for objects
+        - Returns KEYS of object
+        */
+
+        for (let key in employee) {
+            console.log(`The ${key} of employee is ${employee[key]}`);
+        }
+
+        /* ===================== WHILE LOOP ===================== */
+
+        /*
+        while loop:
+        - Checks condition FIRST
+        - Runs only if condition is true
+        */
+
+        let i = 0;
+        while (i < 4) {
+            console.log(`${i} is less than 4`);
+            i++;
+        }
+
+        /* ===================== DO-WHILE LOOP ===================== */
+
+        /*
+        do-while loop:
+        - Runs AT LEAST ONCE
+        - Condition checked AFTER execution
+        */
+
+        let j = 34;
+        do {
+            console.log(`${j} runs at least once`);
+            j++;
+        } while (j < 4);
+
+        /* =====================================================
+           IMPORTANT INTERVIEW & EXAM NOTES
+           ===================================================== */
+
+        /*
+        1. for loop → best when number of iterations is known
+        2. while loop → condition-based loop
+        3. do-while → executes at least once
+        4. forEach → array-specific loop
+        5. for...of → array/string iteration
+        6. for...in → object iteration
+        */
+
+    </script>
+</body>
+</html>

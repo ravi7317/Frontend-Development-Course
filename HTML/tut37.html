@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+    HTML5 DOCUMENT TYPE
+    Informs the browser to use HTML5 standards
+-->
+
+<html lang="en">
+<!--
+    Root element of the document
+    lang="en" improves accessibility and SEO
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!--
+        Sets UTF-8 character encoding
+        Ensures text displays correctly
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        Makes the layout responsive on all devices
+        width=device-width → match screen width
+        initial-scale=1.0 → normal zoom
+    -->
+
+    <title>CSS Transition</title>
+    <!-- Title shown in the browser tab -->
+
+    <style>
+        /*
+            ============================================
+            BODY STYLING
+            ============================================
+        */
+        body{
+            background-color: black;
+            /*
+                Sets background color of the entire page
+            */
+        }
+
+        /*
+            ============================================
+            BOX ELEMENT
+            ============================================
+            This element demonstrates CSS transitions
+        */
+        #box{
+            display: flex;
+            /*
+                Enables flexbox
+                Used to center text inside the box
+            */
+
+            height: 200px;
+            width: 200px;
+            /*
+                Initial size of the box
+            */
+
+            background-color: red;
+            /*
+                Initial background color
+            */
+
+            justify-content: center;
+            align-items: center;
+            /*
+                Centers text horizontally and vertically
+            */
+
+            /*
+                --------------------------------------------
+                CSS TRANSITION
+                --------------------------------------------
+
+                transition controls how property changes
+                happen smoothly instead of instantly
+
+                Syntax (shorthand):
+                transition: property duration timing-function delay;
+            */
+            transition: all 1s ease-in-out 0.3s;
+            /*
+                all          → all animatable properties
+                1s           → duration of transition
+                ease-in-out  → smooth start and end
+                0.3s         → delay before transition starts
+            */
+        }
+
+        /*
+            ============================================
+            HOVER STATE
+            ============================================
+            Applied when mouse is placed over the box
+        */
+        #box:hover{
+            background-color: aqua;
+            /*
+                Changes background color on hover
+            */
+
+            height: 250px;
+            width: 250px;
+            /*
+                Increases size smoothly
+            */
+
+            border-radius: 50px;
+            /*
+                Rounds the corners
+            */
+
+            font-size: 40px;
+            /*
+                Increases text size
+            */
+
+            /*
+                All these properties animate because
+                transition: all is applied above
+            */
+        }
+
+        /*
+            ============================================
+            HEADING STYLING
+            ============================================
+        */
+        h3{
+            background-color: white;
+            /*
+                Gives contrast on dark background
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page heading -->
+    <h3>This is CSS transition</h3>
+
+    <!-- Container (not styled, just for structure) -->
+    <div class="container">
+
+        <!-- Box that demonstrates transition -->
+        <div id="box">
+            This is my box
+        </div>
+
+    </div>
+</body>
+</html>
+
+<!--
+    ============================================================
+    COMPLETE NOTES / REVISION
+    ============================================================
+
+    CSS TRANSITION:
+    Allows smooth change from one CSS property value
+    to another over a given duration.
+
+    TRANSITION WORKS ON:
+    - hover
+    - focus
+    - active
+    - class change (via JS)
+
+    TRANSITION PROPERTIES:
+    transition-property → which property to animate
+    transition-duration → how long animation runs
+    transition-timing-function → animation speed curve
+    transition-delay → delay before animation starts
+
+    COMMON TIMING FUNCTIONS:
+    - ease
+    - ease-in
+    - ease-out
+    - ease-in-out
+    - linear
+
+    SHORTHAND:
+    transition: property duration timing-function delay;
+
+    WHICH PROPERTIES CAN TRANSITION?
+    ✔ color
+    ✔ background-color
+    ✔ width / height
+    ✔ font-size
+    ✔ border-radius
+    ✔ opacity
+    ✖ display (NOT animatable)
+
+    DIFFERENCE: TRANSITION vs ANIMATION
+    - Transition → needs trigger (hover, click)
+    - Animation → runs automatically using @keyframes
+
+    INTERVIEW ONE-LINER:
+    CSS transitions provide smooth visual effects
+    when a property changes state, without JavaScript.
+-->

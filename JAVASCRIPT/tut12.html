@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulating DOM</title>
+</head>
+<body>
+
+    <!-- ===================== HTML STRUCTURE ===================== -->
+
+    <!-- Parent container -->
+    <div class="conatiner"> <!-- typo in class name is okay, JS depends on exact spelling -->
+        <ul id="nav">
+            <li>Home</li>
+            <li>About</li>
+            <li>Service</li>
+            <li>More About Us</li>
+            <li>Contact Us</li>
+        </ul>
+    </div>
+
+    <!-- Another container -->
+    <div class="container">Another Container</div>
+
+    <script>
+        /* =====================================================
+           DOM (DOCUMENT OBJECT MODEL)
+           ===================================================== */
+
+        /*
+        DOM:
+        - Browser converts HTML into a tree-like object structure
+        - JavaScript uses DOM to access, modify, add, or remove HTML elements
+        - document is the root object of DOM
+        */
+
+        /* ===================== getElementById ===================== */
+
+        /*
+        getElementById():
+        - Selects ONE element using id
+        - Returns a single element or null
+        */
+
+        let main = document.getElementById('main'); // id="main" does NOT exist
+        console.log(main); // null (important interview point)
+
+        let nav = document.getElementById('nav');   // id exists
+        console.log(nav);
+
+        /* ===================== getElementsByClassName ===================== */
+
+        /*
+        getElementsByClassName():
+        - Selects elements using class name
+        - Returns HTMLCollection (array-like)
+        - Access elements using index
+        */
+
+        let container = document.getElementsByClassName('container');
+        console.log(container);
+        // console.log(container[0]);
+
+        /* ===================== querySelector ===================== */
+
+        /*
+        querySelector():
+        - Selects FIRST matching element
+        - Uses CSS selector syntax
+        */
+
+        // let sel = document.querySelector('.container');
+        // console.log("Selector return", sel);
+
+        // let sel1 = document.querySelector('#nav > li');
+        // console.log("Selector return", sel1);
+
+        /* ===================== querySelectorAll ===================== */
+
+        /*
+        querySelectorAll():
+        - Selects ALL matching elements
+        - Returns NodeList
+        - Can be looped using forEach
+        */
+
+        let sel = document.querySelectorAll('#nav > li');
+        console.log("Selector return", sel);
+
+        // Example loop on NodeList
+        sel.forEach(function(element){
+            console.log(element.innerText);
+        });
+
+        /* =====================================================
+           IMPORTANT DOM INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. getElementById → single element
+        2. getElementsByClassName → HTMLCollection
+        3. querySelector → first match
+        4. querySelectorAll → NodeList (supports forEach)
+        5. If element not found → null
+        6. DOM selection uses CSS selector rules
+        */
+
+    </script>
+</body>
+</html>

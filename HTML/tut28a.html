@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Tutorial</title>
+
+    <style>
+        /* -------- GLOBAL RESET -------- */
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* -------- FLEX CONTAINER -------- */
+        .container{
+            width: 100%;
+            max-width: 1000px;          /* responsive max width */
+            margin: 40px auto;          /* center container */
+            padding: 20px;
+            border: 2px solid black;
+
+            display: flex;              /* enable flexbox */
+            flex-direction: row;        /* main axis = row */
+            flex-wrap: wrap;            /* allow wrapping */
+            gap: 20px;                  /* spacing between items */
+
+            justify-content: center;    /* horizontal alignment */
+            align-items: center;        /* vertical alignment */
+        }
+
+        /* -------- FLEX ITEMS -------- */
+        .item{
+            flex: 1 1 200px;            /* grow | shrink | basis */
+            height: 150px;
+            background-color: tomato;
+            border: 2px solid green;
+
+            display: flex;
+            align-items: center;        /* center text vertically */
+            justify-content: center;    /* center text horizontally */
+
+            font-size: 18px;
+            color: white;
+        }
+
+        /* -------- INDIVIDUAL ITEM CONTROL -------- */
+        #item-1{
+            flex-grow: 2;               /* grows more than others */
+        }
+
+        #item-2{
+            flex-basis: 250px;          /* preferred size */
+        }
+
+        #item-3{
+            align-self: flex-end;       /* override alignment */
+        }
+
+        /* -------- RESPONSIVE BEHAVIOR -------- */
+        @media (max-width: 600px){
+            .container{
+                justify-content: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3 style="text-align:center; margin-top:20px;">
+        This is Flexbox Tutorial
+    </h3>
+
+    <div class="container">
+        <div class="item" id="item-1">First Box</div>
+        <div class="item" id="item-2">Second Box</div>
+        <div class="item" id="item-3">Third Box</div>
+    </div>
+
+</body>
+</html>

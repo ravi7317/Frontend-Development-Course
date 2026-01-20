@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 DOCUMENT
+    Tells the browser this file uses HTML5 standards
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the page
+    lang="en" improves accessibility and SEO
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding
+        Ensures all characters display correctly
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Makes the layout responsive on mobile devices
+        width=device-width → match screen width
+        initial-scale=1.0 → normal zoom
+    -->
+
+    <title>Fitness Service</title>
+    <!-- Title shown in browser tab -->
+
+    <!-- External CSS file (not used here but kept for practice) -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* 
+            UNIVERSAL SELECTOR (*)
+            Used to reset default browser styles
+        */
+        *{
+            box-sizing:border-box;
+            /* Padding & border included in width/height */
+
+            margin: 0;
+            padding: 0;
+            /* Removes default spacing */
+        }
+
+        /* 
+            BODY STYLING
+            Sets overall page appearance
+        */
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            /* Sets font style */
+
+            color: white;
+            /* Default text color */
+
+            background: url(boxer.jpg) no-repeat center center/cover;
+            /* 
+                Background image
+                no-repeat → no tiling
+                center center → centered image
+                cover → covers full screen
+            */
+        }
+
+        /* 
+            HEADER SECTION
+            Contains logo, navigation, and buttons
+        */
+        .header{
+            display: flex;
+            /* Flexbox layout */
+
+            align-items: center;
+            /* Vertically center items */
+
+            justify-content: space-between;
+            /* Space between left, mid, right */
+
+            padding: 20px 40px;
+            /* Space inside header */
+        }
+
+        /* 
+            LEFT SECTION (LOGO + NAME)
+        */
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* Space between logo and text */
+        }
+
+        .left img{
+            width: 80px;
+            /* Logo size */
+
+            filter: invert(100%);
+            /* Inverts image color (useful on dark background) */
+        }
+
+        .left div{
+            font-size: 26px;
+            font-weight: bold;
+            /* Makes brand name prominent */
+        }
+
+        /* 
+            MIDDLE SECTION (NAVIGATION)
+        */
+        .mid{
+            flex: 1;
+            /* Takes remaining space */
+
+            text-align: center;
+            /* Centers navbar */
+        }
+
+        .navbar{
+            list-style: none;
+            /* Removes bullets */
+
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            /* Space between menu items */
+        }
+
+        .navbar li{
+            font-size: 22px;
+        }
+
+        .navbar a{
+            color: white;
+            text-decoration: none;
+            /* Removes underline */
+
+            padding: 8px 12px;
+            /* Clickable area */
+        }
+
+        .navbar a:hover,.navbar a.active{
+            color: #00ffcc;
+            text-decoration: underline;
+            /* Active & hover effect */
+        }
+
+        /* 
+            RIGHT SECTION (BUTTONS)
+        */
+        .right{
+            display: flex;
+            gap: 10px;
+        }
+
+        /* 
+            BUTTON STYLING
+            Reusable button class
+        */
+        .btn{
+            font-family: 'Times New Roman', Times, serif;
+
+            background-color: black;
+            color: white;
+
+            padding: 8px 16px;
+
+            border: 1px solid gray;
+            border-radius: 20px;
+            /* Rounded buttons */
+
+            font-size: 18px;
+            cursor: pointer;
+
+            transition: 0.3s;
+            /* Smooth hover animation */
+        }
+
+        .btn:hover{
+            background-color: #00ffcc;
+            color: black;
+            /* Hover effect */
+        }
+
+        /* 
+            FORM CONTAINER
+        */
+        .container{
+            background: rgba(0, 0, 0, 0.7);
+            /* Semi-transparent background */
+
+            border-radius: 25px;
+
+            padding: 40px 30px;
+
+            width: 35%;
+            /* Desktop width */
+
+            margin: 80px auto;
+            /* Center horizontally */
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            /* Adds depth */
+        }
+
+        .container h1{
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* 
+            FORM INPUT GROUP
+        */
+        .form-group input{
+            width: 100%;
+            /* Full width input */
+
+            padding: 14px;
+            margin-bottom: 15px;
+
+            border-radius: 30px;
+            border: none;
+            outline: none;
+
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .form-group input:focus{
+            box-shadow: 0 0 8px #00ffcc;
+            /* Glow effect on focus */
+        }
+
+        .container button{
+            width: 100%;
+            /* Full-width submit button */
+        }
+
+        /* 
+            RESPONSIVE DESIGN
+            Adjust layout for tablets
+        */
+        @media (max-width: 1024px){
+            .container{
+                width: 60%;
+            }
+        }
+
+        /* 
+            MOBILE RESPONSIVE DESIGN
+        */
+        @media (max-width: 768px){
+            .header{
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .navbar{
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .right{
+                flex-direction: column;
+            }
+
+            .container{
+                width: 90%;
+                margin: 40px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER START -->
+    <header class="header">
+
+        <!-- LOGO SECTION -->
+        <div class="left">
+            <img src="fitness.jpg" alt="logo">
+            <div>Ravi Fitness</div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Fitness Calculator</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="right">
+            <button class="btn">Call Us Now</button>
+            <button class="btn">Email Us</button>
+        </div>
+
+    </header>
+    <!-- HEADER END -->
+
+    <!-- FORM CONTAINER -->
+    <div class="container">
+
+        <h1>Join the Best Gym in Delhi</h1>
+        <p class="subtitle">Start your fitness journey today</p>
+
+        <!-- REGISTRATION FORM -->
+        <form action="noaction.php">
+
+            <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+            </div>
+
+            <div class="form-group">
+                <input type="tel" placeholder="Phone Number" required>
+            </div>
+
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" placeholder="Address">
+            </div>
+
+            <button type="submit" class="btn">Join Now</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

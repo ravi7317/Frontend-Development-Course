@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- 
+    DOCTYPE declaration
+    - Specifies that this document follows HTML5 standards
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the HTML document
+    - lang="en" defines document language as English
+    - Helps with SEO and accessibility
+-->
+
+<head>
+    <!-- 
+        Meta charset
+        - UTF-8 supports all characters and symbols
+    -->
+    <meta charset="UTF-8">
+
+    <!-- 
+        Viewport meta tag
+        - Makes the webpage responsive on all devices
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 
+        Title of the webpage
+        - Appears on browser tab
+    -->
+    <title>Variable</title>
+
+    <script>
+        // ================================
+        // JAVASCRIPT INTRODUCTION
+        // ================================
+
+        // JavaScript is a dynamic language
+        // - Variable data types can change at runtime
+        // - No need to define data type explicitly
+
+        // ================================
+        // VARIABLES IN JAVASCRIPT
+        // ================================
+
+        // var keyword is used to declare a variable
+        // (Older method, function-scoped)
+        var a = 78;        // number type
+        var b = "Ravi";    // string type
+
+        // console.log() is used to print output to browser console
+        console.log(b);
+
+        // ================================
+        // OPERATORS IN JAVASCRIPT
+        // ================================
+
+        // Operators perform operations on operands
+        // Example: 3 + 4
+        // '+' is operator
+        // 3 and 4 are operands
+
+        // ================================
+        // 1. UNARY OPERATOR
+        // ================================
+
+        // Unary operator works with a single operand
+        // Example: x = -x
+
+        var c = 34.5;
+        c = -c; // unary minus operator
+        console.log(c);
+
+        // ================================
+        // 2. BINARY OPERATOR
+        // ================================
+
+        // Binary operator works with two operands
+        // Example: a + b
+
+        c = 456 + 8;
+        console.log(c);
+
+        // ================================
+        // ARITHMETIC OPERATORS
+        // ================================
+
+        // +  Addition
+        // -  Subtraction
+        // *  Multiplication
+        // /  Division
+        // ** Exponentiation (power)
+
+        var num1 = 2;
+        var num2 = 9;
+
+        console.log("The value of num1 + num2 is " + (num1 + num2));
+        console.log("The value of num1 - num2 is " + (num1 - num2));
+        console.log("The value of num1 * num2 is " + (num1 * num2));
+        console.log("The value of num1 / num2 is " + (num1 / num2));
+        console.log("The value of num1 ** num2 is " + (num1 ** num2));
+
+        // ================================
+        // INCREMENT & DECREMENT OPERATORS
+        // ================================
+
+        // Post-increment (num1++)
+        // - Value is used first, then incremented
+        console.log("The value of num1++ is " + (num1++));
+        // Output: 2, but num1 becomes 3
+
+        // Pre-increment (++num1)
+        // - Value is incremented first, then used
+        console.log("The value of ++num1 is " + (++num1));
+        // Output: 4
+
+        // Post-decrement (num1--)
+        // - Value is used first, then decremented
+        console.log("The value of num1-- is " + (num1--));
+        // Output: 4, but num1 becomes 3
+
+        // Pre-decrement (--num1)
+        // - Value is decremented first, then used
+        console.log("The value of --num1 is " + (--num1));
+        // Output: 2
+    </script>
+</head>
+
+<body>
+    <!-- 
+        Container div
+        - Used to wrap page content
+    -->
+    <div class="container">
+
+        <!-- Page heading -->
+        <h1>This is a heading</h1>
+
+        <!-- Content section -->
+        <div class="content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 
+    WAYS TO ADD JAVASCRIPT IN HTML
+
+    1. External JavaScript file
+       <script src="script.js"></script>
+
+    2. Internal JavaScript in <head> section
+       <script> JS code </script>
+
+    3. Internal JavaScript in <body> section
+       <script> JS code </script>
+-->

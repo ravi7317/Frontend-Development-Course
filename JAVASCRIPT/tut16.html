@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+
+    <!-- Simple HTML container -->
+    <div class="container">This is Arrow Function Tutorial</div>
+
+    <script>
+        /* =====================================================
+           ARROW FUNCTIONS IN JAVASCRIPT
+           ===================================================== */
+
+        /*
+        Arrow Function:
+        - Introduced in ES6 (ES2015)
+        - Shorter syntax for writing functions
+        - Does NOT have its own `this`
+        - Uses lexical scoping for `this`
+        */
+
+        /* ===================== BASIC ARROW FUNCTION ===================== */
+
+        // Arrow function with block body
+        let greet = () => {
+            console.log("Good morning");
+        };
+
+        /* ===================== ARROW FUNCTION WITH PARAMETERS ===================== */
+
+        // Arrow function with return statement
+        let sum = (a, b) => {
+            return a + b;
+        };
+
+        // Arrow function with implicit return (single line)
+        let sum2 = (a, b) => a + b;
+
+        // If only ONE parameter, parentheses are optional
+        let half = a => a / 2;
+
+        // Arrow function with no parameters
+        let greet1 = () => console.log("Good boy");
+
+        // Calling functions
+        greet();
+        greet1();
+
+        /* ===================== COMPARISON WITH NORMAL FUNCTION ===================== */
+
+        /*
+        Normal function syntax:
+        function greet(){
+            console.log("Good morning");
+        }
+        */
+
+        /* ===================== ARROW FUNCTION WITH setTimeout ===================== */
+
+        /*
+        Arrow functions are commonly used in:
+        - setTimeout
+        - setInterval
+        - forEach
+        */
+
+        setTimeout(() => {
+            console.log("We are inside setTimeout");
+        }, 3000);
+
+        /* =====================================================
+           LEXICAL `this` (MOST IMPORTANT TOPIC)
+           ===================================================== */
+
+        /*
+        Lexical this:
+        - Arrow functions do NOT have their own `this`
+        - They inherit `this` from their surrounding scope
+        - This avoids common bugs in callbacks
+        */
+
+        let obj1 = {
+            greet: "Good morning",
+            name: ["Harry", "Ravi", "Rohan", "Khiladi"],
+
+            // Normal method
+            speak() {
+
+                /*
+                forEach callback:
+                - Arrow function keeps `this` of speak()
+                - `this.greet` refers to obj1.greet
+                */
+
+                this.name.forEach((student) => {
+                    console.log(this.greet + " to " + student);
+                });
+            }
+        };
+
+        // Calling object method
+        obj1.speak();
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. Arrow functions are shorter and cleaner
+        2. Arrow functions do NOT have:
+           - their own `this`
+           - arguments object
+           - constructor
+        3. Best used in callbacks
+        4. NOT recommended as object methods
+        5. Lexical `this` means:
+           `this` is taken from parent scope
+        6. Cannot use arrow function as constructor
+        */
+
+    </script>
+</body>
+</html>

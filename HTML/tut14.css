@@ -1,0 +1,18 @@
+/* what is css selector
+* css selector are use to find the element whose
+property will be set 
+* Selector are used to target the html element
+* Selectors makes it easy for us to easily target
+single/multiple HTML element in the markup */
+p{
+    color: blue;
+}
+/* p--> Selector */
+/* color--> property */
+/* blue--> value */
+/* type of css selectors
+1. css element selector
+2. css id selector 
+3. css class selector
+4. the css grouping selector
+*/

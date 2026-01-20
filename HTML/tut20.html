@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- HTML5 document declaration -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Responsive design -->
+
+    <title>Document</title>
+
+    <style>
+        /* -------- UNIVERSAL SELECTOR -------- */
+        *{
+            box-sizing: border-box;
+            /* 
+                border-box means:
+                width & height INCLUDE padding and border
+                (VERY IMPORTANT for layouts)
+            */
+
+            margin: 0;
+            /* Removes default margin */
+
+            padding: 0;
+            /* Removes default padding */
+        }
+
+        /* -------- CONTAINER CLASS -------- */
+        .container{
+            background-color: rgb(231, 230, 241);
+            /* Background applies to content + padding */
+
+            border: 3px solid rgb(64, 6, 119);
+            /* Border surrounds padding and content */
+
+            /*
+            Padding controls space BETWEEN content and border
+            */
+
+            /* Individual padding example:
+            padding-top: 9px;
+            padding-bottom: 34px;
+            padding-right: 20px;
+            padding-left: 15px;
+            */
+
+            /* Padding shorthand:
+            padding: top right bottom left;
+            padding: 9px 34px 20px 15px;
+            */
+
+            /* Vertical (Y) and Horizontal (X) padding */
+            padding: 34px 19px;
+            /* 34px top & bottom, 19px left & right */
+
+            /*
+            Margin controls space OUTSIDE the border
+            */
+
+            margin: 14px 19px;
+            /* 14px top/bottom, 19px left/right */
+
+            border-radius: 23px;
+            /* Rounds the border corners */
+
+            width: 533px;
+            /* Total width because of border-box */
+        }
+
+        body{
+            background-color: skyblue;
+            /* Page background */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- -------- FIRST BOX -------- -->
+    <div class="container">
+        <h3>This is my heading</h3>
+        <p id="first">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit...
+        </p>
+    </div>
+
+    <!-- -------- SECOND BOX -------- -->
+    <div class="container">
+        <h3>This is my heading</h3>
+        <p id="Second">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit...
+        </p>
+    </div>
+
+    <!-- -------- THIRD BOX -------- -->
+    <div class="container">
+        <h3>This is my heading</h3>
+        <p id="Third">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit...
+        </p>
+    </div>
+
+</body>
+</html>
+
+<!-- 
+CSS BOX MODEL:
+Every element is treated as a box
+Content -> Padding -> Border -> Margin
+-->

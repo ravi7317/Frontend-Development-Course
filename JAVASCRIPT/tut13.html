@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Events</title>
+</head>
+
+<style>
+    /* Button styling */
+    #btn{
+        padding: 10px 14px;
+        background-color: red;
+        border: 2px solid black;
+        color: white;
+        font-weight: bold;
+        border-radius: 23px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <!-- =====================================================
+         EVENTS IN JAVASCRIPT
+         ===================================================== -->
+
+    <!--
+    Event:
+    - An event is an action performed by the user or browser
+    - JavaScript reacts to these actions using event handlers
+
+    Common Browser Events:
+    - click
+    - contextmenu (right click)
+    - mouseover / mouseout
+    - mousedown / mouseup
+    - mousemove
+    - submit
+    - focus / blur
+    - DOMContentLoaded
+    - transitionend (CSS)
+    -->
+
+    <div class="container">
+        <h1>This is my heading</h1>
+
+        <!-- Paragraph on which mouse events are applied -->
+        <p id="para">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Tempora, ullam! Quo doloribus fugiat repellat suscipit inventore
+            fugit esse dicta aperiam impedit itaque quidem dignissimos,
+            eveniet consequuntur facere odit sint possimus.
+        </p>
+    </div>
+
+    <!-- Inline event (not recommended for large apps, but okay for learning) -->
+    <button id="btn" onclick="toggleHide()">Show / Hide</button>
+
+    <script>
+        /* =====================================================
+           EVENT LISTENERS
+           ===================================================== */
+
+        /*
+        addEventListener():
+        - Modern way to handle events
+        - Allows multiple events on same element
+        - Better than inline onclick
+        */
+
+        let para = document.getElementById('para');
+
+        /* ===================== mouseover ===================== */
+
+        /*
+        mouseover:
+        - Triggers when mouse enters the element
+        */
+
+        para.addEventListener('mouseover', function run() {
+            console.log('Mouse is inside the paragraph');
+        });
+
+        /* ===================== mouseout ===================== */
+
+        /*
+        mouseout:
+        - Triggers when mouse leaves the element
+        */
+
+        para.addEventListener('mouseout', function run() {
+            console.log('Mouse went outside the paragraph');
+        });
+
+        /* =====================================================
+           CLICK EVENT FUNCTION
+           ===================================================== */
+
+        /*
+        toggleHide():
+        - Called when button is clicked
+        - Toggles paragraph visibility
+        */
+
+        function toggleHide() {
+
+            // Selecting elements
+            let btn = document.getElementById('btn');
+            let para = document.getElementById('para');
+
+            /*
+            style.display values:
+            - "none"  → hides element
+            - "block" → shows element
+            */
+
+            if (para.style.display != "none") {
+                para.style.display = "none"; // hide paragraph
+            } else {
+                para.style.display = "block"; // show paragraph
+            }
+        }
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. Events make websites interactive
+        2. addEventListener is preferred over onclick
+        3. Multiple event listeners can exist on same element
+        4. mouseover ≠ mouseenter (mouseover bubbles)
+        5. Inline events mix HTML & JS (avoid in real projects)
+        6. style.display directly changes CSS via JS
+        */
+
+    </script>
+</body>
+</html>

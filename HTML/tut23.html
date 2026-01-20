@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- HTML5 document declaration -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Responsive design -->
+
+    <title>Navigation</title>
+    <!-- Page title -->
+
+    <style>
+        /* 
+            NAVBAR CLASS
+            Definition:
+            A navigation bar holds website navigation links
+        */
+        .navbar{
+            background-color: #A04142;
+            /* Background color of navbar */
+
+            border-radius: 30px;
+            /* Rounded corners */
+
+            overflow: auto;
+            /* 
+                Clears floated elements inside navbar
+                Prevents height collapse
+            */
+        }
+
+        /* 
+            NAVBAR LIST ITEMS
+            Definition:
+            Each menu item is floated left
+        */
+        .navbar li{
+            float: left;
+            /* Aligns menu items horizontally */
+
+            list-style: none;
+            /* Removes bullets */
+
+            margin: 13px 20px;
+            /* Space around items */
+        }
+
+        /* 
+            NAVBAR LINKS
+            Definition:
+            Anchor tags inside list items
+        */
+        .navbar li a{
+            padding: 3px 6px;
+            /* Inner spacing */
+
+            text-decoration: none;
+            /* Removes underline */
+
+            color: white;
+            /* Text color */
+        }
+
+        /* 
+            PSEUDO-CLASS :hover
+            Definition:
+            Applied when mouse is over link
+        */
+        .navbar li a:hover{
+            background-color: red;
+            /* Changes background on hover */
+        }
+
+        /* 
+            SEARCH CONTAINER
+            Definition:
+            Right-aligned search box
+        */
+        .search{
+            float: right;
+            /* Moves search to right */
+
+            padding: 5px 12px;
+            /* Inner spacing */
+            
+        }
+
+        /* 
+            SEARCH INPUT FIELD
+        */
+        .navbar input{
+            background-color: rgb(205, 236, 236);
+            /* Input background */
+
+            border-radius: 14px;
+            /* Rounded corners */
+
+            width: 160px;
+            height: 40px;
+            /* Fixed width */
+
+            border: 2px solid black;
+            /* Input border */
+            margin: 5px 40px;
+            padding: 5px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+
+        <!-- Navigation bar -->
+        <nav class="navbar">
+
+            <!-- Unordered list for menu -->
+            <ul>
+
+                <!-- Navigation items -->
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact us</a></li>
+
+                <!-- Search item MUST be inside li -->
+                <li class="search">
+                    <input type="search" name="search" id="search" placeholder="Search this website">
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>
+
+<!-- 
+    DEFINITIONS (IMPORTANT):
+
+    Navbar:
+    A horizontal menu used for website navigation
+
+    Float:
+    Aligns elements left or right
+
+    Overflow: auto:
+    Clears floated children
+
+    Pseudo-class :hover:
+    Applies style when mouse is over element
+
+    ul:
+    Unordered list
+
+    li:
+    List item (only valid child of ul)
+
+    NOTE:
+    Float-based navbars are old
+    Modern navbars use Flexbox
+-->

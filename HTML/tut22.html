@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+    Tells the browser that this page uses HTML5
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the document
+    lang="en" specifies English language
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- 
+      Character encoding
+      Ensures text displays correctly
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 
+      Makes the page responsive on different screen sizes
+  -->
+
+  <title>Pseudo selector & more desiging</title>
+  <!-- 
+      Title shown on browser tab
+  -->
+
+  <style>
+    /* 
+        CLASS SELECTOR (.container)
+        Definition:
+        A class selector styles all elements having the same class
+    */
+    .container {
+      border: 2px solid red;
+      /* Border around the container */
+
+      background-color: pink;
+      /* Background color of container */
+
+      padding: 34px;
+      /* 
+          Padding:
+          Space inside the element between content and border
+      */
+
+      margin: 34px auto;
+      /* 
+          Margin:
+          Space outside the element
+          auto centers the container horizontally
+      */
+
+      width: 666px;
+      /* Fixed width of container */
+    }
+
+    /* 
+        ELEMENT SELECTOR (a)
+        Definition:
+        Targets all anchor (link) elements
+    */
+    a{
+      text-decoration: none;
+      /* Removes underline from link */
+
+      background-color: black;
+      /* Default background of link */
+    }
+
+    /* 
+        PSEUDO-CLASS :hover
+        Definition:
+        Applies style when mouse is placed over the element
+    */
+    a:hover{
+      color: green;
+      background-color: crimson;
+    }
+
+    /* 
+        PSEUDO-CLASS :active
+        Definition:
+        Applies style when element is clicked
+    */
+    a:active{
+      background-color: darkblue;
+    }
+
+    /* 
+        PSEUDO-CLASS :visited
+        Definition:
+        Applies style after the link has been visited
+    */
+    a:visited{
+      color: aqua;
+      background-color: blue;
+    }
+
+    /* 
+        PSEUDO-CLASS on button hover
+    */
+    button:hover{
+      color: green;
+      background-color: crimson;
+    }
+
+    /* 
+        CLASS SELECTOR (.btn)
+        Definition:
+        Reusable button styling
+    */
+    .btn{
+      background-color: blueviolet;
+      /* Button background color */
+
+      padding: 6px;
+      /* Inner spacing of button */
+
+      border: none;
+      /* Removes default border */
+
+      cursor: pointer;
+      /* Changes cursor to hand icon */
+
+      font-size: 13px;
+      /* Text size */
+
+      border-radius: 4px;
+      /* Rounds button corners */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+      BODY
+      Contains all visible content of the page
+  -->
+
+  <div class="container" id="cont1">
+    <!-- 
+        Container div
+        Holds heading, paragraph, link, and button
+    -->
+
+    <h3>this is my heading</h3>
+    <!-- Heading element -->
+
+    <p>
+      <!-- Paragraph element -->
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus,
+      velit? Inventore ipsum veritatis odit fugit nesciunt voluptates at rerum
+      praesentium, ullam ea itaque quaerat repudiandae libero magni ducimus
+      eligendi doloremque unde eos, qui sint quibusdam, autem laudantium modi.
+      Aliquam, quasi?
+
+      <!-- 
+          Anchor tag (link)
+          Uses pseudo-classes like hover, active, visited
+      -->
+      <a href="" class="btn">Read more</a>
+
+      <!-- 
+          Button element
+          Styled using .btn class and :hover pseudo-class
+      -->
+      <button class="btn">contact us</button>
+    </p>
+  </div>
+
+</body>
+</html>
+
+<!-- 
+    DEFINITIONS SUMMARY (IN COMMENTS):
+
+    Class Selector (.classname):
+    Styles multiple elements
+
+    Element Selector (tagname):
+    Styles all elements of that tag
+
+    Pseudo-class:
+    Styles elements based on their state
+    Examples:
+    :hover   → mouse over
+    :active  → when clicked
+    :visited → visited link
+
+    Padding:
+    Space inside the element
+
+    Margin:
+    Space outside the element
+
+    Container:
+    Wrapper element used for layout and alignment
+-->

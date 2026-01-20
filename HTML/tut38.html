@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+    ============================================================
+    CSS TRANSFORM — COMPLETE NOTES
+    ============================================================
+
+    TOPIC:
+    CSS transform property
+
+    PURPOSE:
+    The transform property allows you to visually change
+    an element’s position, size, rotation, or shape
+    WITHOUT affecting the document layout.
+
+    IMPORTANT:
+    Transform does NOT move surrounding elements.
+-->
+
+<html lang="en">
+<!-- Root element of the HTML document -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Sets character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes page responsive -->
+
+    <title>CSS Transform</title>
+
+    <style>
+        /*
+            ============================================
+            UNIVERSAL RESET
+            ============================================
+            Removes default browser margin and padding
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /*
+            ============================================
+            CONTAINER
+            ============================================
+            Acts as a wrapper for the box
+        */
+        .container{
+            height: 80vh;
+            /* Takes 80% of viewport height */
+
+            background-color: burlywood;
+            /* Background for contrast */
+
+            display: flex;
+            /* Enables flexbox */
+
+            justify-content: center;
+            /* Centers box horizontally */
+
+            align-items: center;
+            /* Centers box vertically */
+        }
+
+        /*
+            ============================================
+            BOX ELEMENT
+            ============================================
+            This element will be transformed
+        */
+        .box{
+            background-color: brown;
+            /* Box background */
+
+            border: 2px solid black;
+            /* Box border */
+
+            border-radius: 25px;
+            /* Rounded corners */
+
+            height: 400px;
+            width: 400px;
+            /* Fixed size of box */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Centers text inside box */
+
+            /*
+                TRANSITION PROPERTY (IMPORTANT)
+                Enables smooth transform animation
+            */
+            transition: all 1s ease-in-out;
+            /*
+                all → all animatable properties
+                1s → duration
+                ease-in-out → smooth start and end
+            */
+        }
+
+        /*
+            ============================================
+            HOVER STATE
+            ============================================
+            Applied when mouse is over the box
+        */
+        .box:hover{
+            /*
+                TRANSFORM PROPERTY
+                Moves element without affecting layout
+            */
+
+            /* rotate → rotates element */
+            /* transform: rotate(45deg); */
+
+            /* skew → tilts element */
+            /* transform: skew(40deg); */
+
+            /* scale → increases/decreases size */
+            /* transform: scale(2); */
+
+            /* translateX → moves horizontally */
+            /* transform: translateX(123px); */
+
+            /* translateY → moves vertically */
+            /* transform: translateY(123px); */
+
+            /* translate → moves both X and Y */
+            transform: translate(123px, 123px);
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        ============================================
+        HTML STRUCTURE
+        ============================================
+    -->
+    <div class="container">
+        <div class="box">
+            This is my box
+        </div>
+    </div>
+</body>
+</html>
+
+<!--
+    ============================================================
+    QUICK NOTES / REVISION
+    ============================================================
+
+    transform:
+    Applies 2D or 3D transformations to an element.
+
+    COMMON TRANSFORM FUNCTIONS:
+    rotate(deg)        → rotates element
+    scale(x)           → resizes element
+    skew(deg)          → tilts element
+    translateX(px)     → move horizontally
+    translateY(px)     → move vertically
+    translate(x,y)     → move both directions
+
+    IMPORTANT RULES:
+    ✔ Transform does not affect layout flow
+    ✔ Use transition for smooth animation
+    ✔ Transform is GPU-accelerated (fast)
+
+    TRANSFORM vs POSITION:
+    - transform → visual change only
+    - position → affects document layout
+
+    INTERVIEW ONE-LINER:
+    CSS transform allows efficient visual manipulation
+    of elements without triggering reflow.
+-->

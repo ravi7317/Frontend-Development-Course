@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables and lists</title>
+  </head>
+  <body>
+    <ul type="circle">
+      <li>This is first item of my unorder list</li>
+      <ul type="disc">
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+      </ul>
+      <li>This is second item of my unorder list</li>
+      <li>This is third item of my unorder list</li>
+    </ul>
+    <ol type="1">
+      <li>This is first of my unorder list</li>
+      <li>This is second of my unorder list</li>
+      <ol type="i">
+        <li>first</li>
+        <li>Second</li>
+        <li>Third</li>
+      </ol>
+      <li>This is third of my unorder list</li>
+    </ol>
+    <!-- tags used for creating list are <ul> <ol> -->
+    <!-- then within a list is defined by a specific tag, most commonly <li> -->
+    <!-- using type attribute we can give spacfic nature -->
+
+    <!-- Tables -->
+    <h3>HTML Table</h3>
+    <!-- h3 tag is used for level 3 heading -->
+    <table border="1">
+        <!-- border is used to adds a visible border to the table -->
+      <!-- table is used for tablur data -->
+      <thead>
+        <!-- group header rows of the table contain column title -->
+        <tr>
+          <!--  tr table row -->
+          <th>Name</th>
+          <!-- table header call represent a column heading text is bold -->
+          <th>Employee ID</th>
+          <th>Employee Role</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- tbody group main data rows -->
+        <tr>
+          <td>Ravi</td>
+          <!-- td table data cell -->
+          <td>343</td>
+          <td>Programmer</td>
+        </tr>
+        <tr>
+          <td>Shyam</td>
+          <td>244</td>
+          <td>Programmer</td>
+        </tr>
+        <tr>
+          <td>Rohan</td>
+          <td>452</td>
+          <td>Android Developer</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

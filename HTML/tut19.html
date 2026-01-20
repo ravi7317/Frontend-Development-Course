@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- Declares HTML5 document -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Character encoding -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Responsive design -->
+
+    <title>Height, width, border and background</title>
+
+    <style>
+        /* ---------------- FIRST PARAGRAPH ---------------- */
+        #firstPara{
+            background-color: red;
+            /* Sets background color */
+
+            height: 100px;
+            /* Fixed height of the element */
+
+            width: 455px;
+            /* Fixed width of the element */
+
+            /*
+            Border properties written separately (commented):
+            border-width: 5px;
+            border-color: green;
+            border-style: solid;
+            */
+
+            /* Shorthand border property */
+            border: 2px solid green;
+
+            border-radius: 13px;
+            /* Rounds all corners */
+        }
+
+        /* ---------------- SECOND PARAGRAPH ---------------- */
+        #secondPara{
+            background-color: yellow;
+
+            height: 100px;
+            width: 455px;
+
+            /* Different border colors on each side */
+            border-top: 2px solid violet;
+            border-right: 2px solid green;
+            border-left: 2px solid purple;
+            border-bottom: 2px solid hotpink;
+
+            /* Overall rounded corners */
+            border-radius: 12px;
+
+            /* Individual corner radius */
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 6px;
+            border-bottom-right-radius: 7px;
+            border-top-right-radius: 6px;
+        }
+
+        /* ---------------- THIRD PARAGRAPH ---------------- */
+        #thirdPara{
+            /* background-color: white; */
+            /* Commented background color */
+
+            height: 200px;
+            width: 300px;
+
+            /* Sets background image */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFYqoKTu_o3Zns2yExbst2Co84Gpc2Q1RJbA&s');
+
+            border: 2px solid red;
+
+            /* Prevents image repetition */
+            /* repeat-x -> repeat horizontally */
+            /* repeat-y -> repeat vertically */
+            background-repeat: no-repeat;
+
+            /*
+            Background position examples:
+            Only the LAST one applies (CSS override rule)
+            */
+
+            background-position: center top;
+            /* overridden */
+
+            /* background-position: 192px 34px; */
+            /* overridden */
+
+            background-position: center left;
+            /* overridden */
+
+            background-position: top;
+            /* FINAL applied position */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>This is heading</h3>
+    <!-- Heading before first paragraph -->
+
+    <p id="firstPara">This is a paragraph</p>
+    <!-- Styled using #firstPara -->
+
+    <h3>This is second heading</h3>
+
+    <p id="secondPara">This is a second paragraph</p>
+    <!-- Styled using #secondPara -->
+
+    <h3>This is third heading</h3>
+
+    <p id="thirdPara">This is a third paragraph</p>
+    <!-- Styled using #thirdPara with background image -->
+
+</body>
+</html>

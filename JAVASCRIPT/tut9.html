@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction using alert, confirm and prompt</title>
+</head>
+<body>
+
+    <!-- Simple HTML element -->
+    <div class="container">This is a page</div>
+
+    <script>
+        /* =====================================================
+           JAVASCRIPT USER INTERACTION METHODS
+           ===================================================== */
+
+        /*
+        JavaScript provides 3 main browser interaction methods:
+        1. alert()
+        2. prompt()
+        3. confirm()
+
+        These methods are part of the Browser (BOM - Browser Object Model)
+        */
+
+        /* ===================== ALERT ===================== */
+
+        /*
+        alert():
+        - Displays a message to the user
+        - Has ONLY one OK button
+        - Does NOT return any value
+        - Used for notifications or warnings
+        */
+
+        // alert("This is a message");
+
+        /* ===================== PROMPT ===================== */
+
+        /*
+        prompt():
+        - Takes input from the user
+        - Returns the entered value as STRING
+        - Can have a default value
+        - If user clicks Cancel → returns null
+        */
+
+        // let name = prompt("What is your name?", "Guest");
+        // console.log(name);
+
+        /* ===================== CONFIRM ===================== */
+
+        /*
+        confirm():
+        - Used for confirmation (Yes / No)
+        - Returns BOOLEAN value
+            OK     → true
+            Cancel → false
+        - Mostly used before delete, logout, submit actions
+        */
+
+        let deletePost = confirm("Do you really want to delete this post?");
+
+        // Using confirm value with if-else
+        if (deletePost) {
+            console.log("Your post has been deleted successfully");
+        } else {
+            console.log("Your post has not been deleted");
+        }
+
+        /* =====================================================
+           IMPORTANT BEGINNER & INTERVIEW NOTES
+           ===================================================== */
+
+        /*
+        1. alert() → no return value
+        2. prompt() → returns string or null
+        3. confirm() → returns true or false
+
+        4. prompt input is ALWAYS string
+           Example: prompt("Enter age") → "25"
+
+        5. Use Number() to convert input
+           Example:
+           let age = Number(prompt("Enter age"));
+
+        6. These methods pause code execution
+           until user responds
+        */
+
+    </script>
+</body>
+</html>

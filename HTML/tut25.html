@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 document declaration
+    Informs the browser that this page uses HTML5
+-->
+
+<html lang="en">
+<!-- 
+    Root element of the document
+    lang="en" specifies English language
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding
+        Ensures correct display of characters
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Makes the layout responsive on different devices
+    -->
+
+    <title>Document</title>
+    <!-- 
+        Title shown in the browser tab
+    -->
+
+    <style>
+        /* 
+            CSS POSITION PROPERTY
+            Definition:
+            The position property specifies how an element is positioned in the document
+
+            Types of position:
+            1. static   (default)
+            2. relative
+            3. absolute
+            4. fixed
+            5. sticky
+        */
+
+        /* 
+            BOX CLASS
+            Definition:
+            A reusable block used to demonstrate positioning
+        */
+        .box{
+            display: inline-block;
+            /* 
+                inline-block:
+                Elements stay on the same line
+                Width and height are allowed
+            */
+
+            border: 2px solid red;
+            /* Border around each box */
+
+            width: 150px;
+            /* Width of box */
+
+            height: 150px;
+            /* Height of box */
+
+            margin: 2px;
+            /* Space outside the box */
+        }
+
+        /* 
+            BOX 3 POSITIONING
+        */
+        #box3{
+            /* 
+                position: static;
+                Definition:
+                Default position
+                Element follows normal document flow
+            */
+
+            /* 
+                position: relative;
+                Definition:
+                Element is positioned relative to its normal position
+                top, left, right, bottom will work
+            */
+
+            /* 
+                position: absolute;
+                Definition:
+                Element is positioned relative to the nearest positioned parent
+                (parent must have position: relative/absolute/fixed)
+            */
+
+            /* 
+                position: fixed;
+                Definition:
+                Element is positioned relative to the browser window
+                It stays fixed while scrolling
+            */
+
+            position: sticky;
+            /* 
+                position: sticky;
+                Definition:
+                Element behaves like relative until it reaches a given offset,
+                then behaves like fixed
+            */
+
+            top: 4px;
+            /* 
+                top property:
+                Distance from the top when sticky or fixed is applied
+            */
+
+            /* 
+                left, right, bottom can also be used
+            */
+        }
+
+        /* 
+            CONTAINER CLASS
+            Definition:
+            Parent element that wraps all boxes
+        */
+        .container{
+            border: 2px solid blue;
+            /* Border around container */
+
+            background-color: khaki;
+            /* Background color of container */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        BODY
+        Contains all visible elements
+    -->
+
+    <!-- CONTAINER -->
+    <div class="container">
+        <!-- 
+            All boxes are placed inside this container
+        -->
+
+        <div class="box" id="box1">1</div>
+        <!-- Box 1: default static position -->
+
+        <div class="box" id="box2">2</div>
+        <!-- Box 2: default static position -->
+
+        <div class="box" id="box3">3</div>
+        <!-- 
+            Box 3:
+            Demonstrates CSS position property
+        -->
+
+        <div class="box" id="box4">4</div>
+        <!-- Box 4: default static position -->
+    </div>
+
+</body>
+</html>
+
+<!-- 
+    DEFINITIONS SUMMARY (IN COMMENTS):
+
+    static:
+    Default position, element follows normal document flow
+
+    relative:
+    Positioned relative to its normal position
+
+    absolute:
+    Positioned relative to the nearest positioned ancestor
+
+    fixed:
+    Positioned relative to the browser window
+
+    sticky:
+    Acts like relative, then fixed when scrolling
+
+    top / left / right / bottom:
+    Offset properties used with positioned elements
+-->
