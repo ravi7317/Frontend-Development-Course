@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* background: #fff; */
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background: #00ffff;
+}
+.app{
+    width: 90%;
+    background: #fff;
+    max-width: 600px;
+    margin: 100px auto 0;
+    padding: 30px;
+    border-radius: 10px;
+}

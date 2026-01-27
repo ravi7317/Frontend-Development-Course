@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in Log-out page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Login Section -->
+    <section id="loginBox" class="card">
+        <h1>Login-Page</h1>
+
+        <input 
+            type="text" 
+            id="username" 
+            placeholder="Enter username" 
+            required 
+            autocomplete="username"
+        >
+
+        <input 
+            type="password" 
+            id="password" 
+            placeholder="Enter password" 
+            required 
+            autocomplete="current-password"
+        >
+
+        <button id="loginbtn">Login</button>
+        <p id="error" aria-live="polite"></p>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="card hidden">
+        <h2>Welcome, <span id="usernamespan"></span></h2>
+        <button id="logoutbtn">Logout</button>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

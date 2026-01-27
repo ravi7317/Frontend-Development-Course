@@ -1,0 +1,111 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= PAGE ================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= APP CARD ================= */
+.app {
+    width: 420px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 25px 35px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* ================= TITLE ================= */
+.app h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* ================= QUESTION ================= */
+.quiz h2 {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 18px;
+}
+
+/* ================= ANSWERS ================= */
+#answer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+/* ================= ANSWER BUTTON ================= */
+.btn {
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    background: #f7f7f7;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: #ececec;
+}
+
+/* ================= STATES FROM JS ================= */
+.btn.correct {
+    background: #9aeabc;
+    border-color: #2e8b57;
+    color: #114b2b;
+}
+
+.btn.wrong {
+    background: #ffb3b3;
+    border-color: #b22222;
+    color: #6b0000;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* ================= NEXT BUTTON ================= */
+.next-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: none;
+    background: #667eea;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.next-btn:hover {
+    background: #5563d6;
+}
+
+.next-btn:disabled {
+    background: #b5baf0;
+    cursor: not-allowed;
+}
+
+/* ================= RESULT ================= */
+.app p {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
