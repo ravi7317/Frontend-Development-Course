@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+      font-family: Arial;
+      padding: 20px;
+      transition: 0.3s;
+    }
+    .dark {
+      background: #121212;
+      color: white;
+    }
+    button {
+      margin: 5px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 300px;
+      margin-bottom: 15px;
+    }
+    </style>
+</head>
+<body>
+    <h2>User Dashboard</h2>
+    <div class="box">
+        <p id="loginStatus"></p>
+        <button onclick="login()">Login</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="box">
+    <p>Theme</p>
+    <button onclick="setTheme('light')">Light</button>
+    <button onclick="setTheme('dark')">Dark</button>
+  </div>
+
+  <div class="box">
+    <p>Cart</p>
+    <button onclick="addToCart()">Add Item</button>
+    <button onclick="clearCart()">Clear Cart</button>
+        <p id="cartInfo"></p>
+    </div>
+
+    <script src="JS9.js"></script>
+</body>
+</html>
