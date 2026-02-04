@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div class="wrapper">
+    <h1>Weather App</h1>
+    <div class="tab-container">
+        <p class="weatherTab">Your Weather</p>
+        <p class="searchTab">Search Weather</p>
+    </div>
+
+    <div class="weather-container">
+
+        <!-- grant location conatainer -->
+        <div class="grant-location-container">
+            <img src="location.png" width="80"  height="80" loading="lazy" >
+            <p>Grant Location Access</p>
+            <p>Allow Access to get Weather Information</p>
+            <button class="btn">Grant Access</button>
+        </div>
+
+        <!-- search from container -->
+        <form class="form-container">
+            <input type="text"  placeholder="Enter Your City...">
+            <button class="btn">
+                <img src="search.png" width="20" height="20" loading="lazy">
+            </button>
+        </form>
+    </div>
+
+    <!-- loading screen container -->
+     <div class="loading-container">
+        <img src="loading (1).png"  width="150" height="150" loading="lazy">
+     </div>
+
+     <!-- show weather information -->
+      <div class="user-info-container">
+        <!-- show weather name and flag -->
+        <div class="name">
+            <p class="data-cityName"></p>
+            <img class="data-countryIcon">
+        </div>
+
+        <!-- show weather discription -->
+        <p class="data-weatherDesc"></p>
+        <!-- show weather icon -->
+        <img class="data-weatherIcon">
+        <!-- show weather temp -->
+        <p class="data-temp"></p>
+
+        <!-- 3card container -->
+        <div class="parameter-container">
+            <!-- card-1 -->
+            <div class="parameter">
+                <img src="wind.png" width="20" height="20" loading="lazy">
+                <p class="wind-txt">Wind Speed</p>
+                <p class="wind-speed"></p>
+            </div>
+            <!-- card-2 -->
+            <div class="parameter">
+                <img src="humidity.png" width="20" height="20" loading="lazy">
+                <p class="humidity-txt">Humidity</p>
+                <p class="humidity"></p>
+            </div>
+            <!-- card-3 -->
+             <div class="parameter">
+                <img src="weather.png" width="20" height="20" loading="lazy">
+                <p class="Cloud-txt">Cloud</p>
+                <p class="cloud"></p>
+            </div> 
+        </div>
+      </div>
+
+
+
+
+</div>
+
+    <script src="Script.js"></script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+/* =========================
+   RESET + BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #0b1220;
+  color: #eaf0ff;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: rgba(11, 18, 32, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   SEARCH + SUGGESTIONS
+========================= */
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 420px;
+}
+
+#cityInput {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #eaf0ff;
+  outline: none;
+}
+
+#cityInput::placeholder {
+  color: rgba(234, 240, 255, 0.55);
+}
+
+#cityInput:focus {
+  border-color: rgba(120, 170, 255, 0.55);
+  box-shadow: 0 0 0 3px rgba(120, 170, 255, 0.12);
+}
+
+.suggestions {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 16, 28, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+.sug-btn {
+  width: 100%;
+  text-align: left;
+  padding: 12px 12px;
+  background: transparent;
+  border: none;
+  color: #eaf0ff;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sug-btn:hover {
+  background: rgba(120, 170, 255, 0.12);
+}
+
+.sug-btn:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eaf0ff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.actions button:hover {
+  transform: translateY(-1px);
+  background: rgba(120, 170, 255, 0.12);
+  border-color: rgba(120, 170, 255, 0.28);
+}
+
+/* =========================
+   STATUS BAR
+========================= */
+.status {
+  padding: 12px 16px 0;
+}
+
+#statusText {
+  color: rgba(234, 240, 255, 0.7);
+  font-size: 14px;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+.grid {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.22);
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: rgba(234, 240, 255, 0.92);
+  font-weight: 700;
+}
+
+/* 2-column top section */
+#currentCard { grid-column: span 6; }
+#aqiCard     { grid-column: span 6; }
+#astroCard   { grid-column: span 6; }
+#alertsCard  { grid-column: span 6; }
+
+/* full width sections */
+.full { grid-column: 1 / -1; }
+
+/* =========================
+   CURRENT CARD CONTENT
+========================= */
+#currentContent img {
+  width: 52px;
+  height: 52px;
+  margin: 8px 0;
+}
+
+#currentContent p {
+  margin: 6px 0;
+  color: rgba(234, 240, 255, 0.86);
+}
+
+/* =========================
+   HOURLY SCROLL
+========================= */
+.hourly-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 4px;
+  scrollbar-width: thin;
+}
+
+.hourly-row::-webkit-scrollbar {
+  height: 8px;
+}
+.hourly-row::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+}
+
+.hour-item {
+  min-width: 140px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hour-item img {
+  width: 42px;
+  height: 42px;
+  margin: 6px 0;
+}
+
+.hour-item p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.82);
+}
+
+/* =========================
+   DAILY LIST (7 DAYS)
+========================= */
+#dailyList {
+  display: grid;
+  gap: 10px;
+}
+
+.day-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  text-align: left;
+  color: #eaf0ff;
+  transition: 0.2s ease;
+}
+
+.day-item:hover {
+  background: rgba(120, 170, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.day-item img {
+  width: 44px;
+  height: 44px;
+}
+
+/* =========================
+   ALERTS
+========================= */
+.alert-item {
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(255, 60, 60, 0.08);
+  border: 1px solid rgba(255, 60, 60, 0.20);
+  margin-top: 10px;
+}
+
+.alert-item p {
+  margin: 6px 0;
+}
+
+/* =========================
+   FAVORITES
+========================= */
+#favList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fav-btn {
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eaf0ff;
+  cursor: pointer;
+}
+
+.fav-btn:hover {
+  background: rgba(120, 170, 255, 0.12);
+  border-color: rgba(120, 170, 255, 0.28);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  #currentCard, #aqiCard, #astroCard, #alertsCard {
+    grid-column: 1 / -1;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* =========================
+   OPTIONAL THEME HOOKS
+   (from applyTheme() in JS)
+========================= */
+body[data-day="day"] {
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(120, 170, 255, 0.20), transparent),
+              #0b1220;
+}
+
+body[data-day="night"] {
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(120, 90, 255, 0.16), transparent),
+              #070b14;
+}
+
+body[data-weather="rain"] .card {
+  border-color: rgba(120, 170, 255, 0.16);
+}
+
+body[data-weather="clear"] .card {
+  border-color: rgba(255, 255, 255, 0.10);
+}

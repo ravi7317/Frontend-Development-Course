@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <h1 class="logo">Weather</h1>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <input id="cityInput" type="text" placeholder="Search city..." autocomplete="off" />
+      <button id="searchBtn" style="display:none;">Search</button>
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="actions">
+      <button id="geoBtn">Use My Location</button>
+
+      <!-- Unit toggle -->
+      <button id="unitBtn" data-unit="C">°C</button>
+    </div>
+  </header>
+
+  <!-- STATUS -->
+  <section class="status">
+    <p id="statusText"></p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="grid">
+    <!-- Current -->
+    <section class="card" id="currentCard">
+      <h2>Current</h2>
+      <div id="currentContent"></div>
+    </section>
+
+    <!-- AQI -->
+    <section class="card" id="aqiCard">
+      <h2>Air Quality</h2>
+      <div id="aqiContent"></div>
+    </section>
+
+    <!-- Astro -->
+    <section class="card" id="astroCard">
+      <h2>Sun & Moon</h2>
+      <div id="astroContent"></div>
+    </section>
+
+    <!-- Alerts -->
+    <section class="card" id="alertsCard">
+      <h2>Alerts</h2>
+      <div id="alertsContent"></div>
+    </section>
+
+    <!-- Hourly -->
+    <section class="card full" id="hourlyCard">
+      <h2>Hourly (Next 24h)</h2>
+      <div id="hourlyRow" class="hourly-row"></div>
+    </section>
+
+    <!-- 7 Day -->
+    <section class="card full" id="dailyCard">
+      <h2>7 Day Forecast</h2>
+      <div id="dailyList"></div>
+    </section>
+
+    <!-- Day details panel -->
+    <section class="card full" id="dayDetailsCard">
+      <h2>Selected Day Details</h2>
+      <div id="dayDetails"></div>
+    </section>
+
+    <!-- Favorites -->
+    <section class="card full" id="favCard">
+      <h2>Favorites</h2>
+      <div id="favList"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
