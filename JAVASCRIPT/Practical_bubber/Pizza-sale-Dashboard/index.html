@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🍕 Pizza Sales Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="brand">
+        <h1>🍕 Pizza Sales Dashboard</h1>
+        <p class="subtitle">Sales • Trends • Product Insights • Operations</p>
+      </div>
+
+      <!-- FILTERS -->
+      <div class="filters">
+        <div class="filter">
+          <label for="dateFrom">From</label>
+          <input type="date" id="dateFrom" />
+        </div>
+
+        <div class="filter">
+          <label for="dateTo">To</label>
+          <input type="date" id="dateTo" />
+        </div>
+
+        <div class="filter">
+          <label for="periodFilter">Period</label>
+          <select id="periodFilter">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly" selected>Monthly</option>
+          </select>
+        </div>
+
+        <div class="filter">
+          <label for="categoryFilter">Category</label>
+          <select id="categoryFilter">
+            <option value="ALL" selected>All</option>
+            <option value="Veg">Veg</option>
+            <option value="Non-Veg">Non-Veg</option>
+          </select>
+        </div>
+
+        <div class="filter">
+          <label for="sizeFilter">Size</label>
+          <select id="sizeFilter">
+            <option value="ALL" selected>All</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+
+        <div class="filter">
+          <label for="topN">Top N</label>
+          <select id="topN">
+            <option value="5">Top 5</option>
+            <option value="10" selected>Top 10</option>
+            <option value="20">Top 20</option>
+          </select>
+        </div>
+
+        <button id="resetBtn" class="btn">Reset</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- KPI CARDS -->
+      <section class="kpis">
+        <div class="card">
+          <p class="label">Total Revenue</p>
+          <h2 id="kpiRevenue">₹0</h2>
+          <p class="meta" id="kpiRevenueSub">—</p>
+        </div>
+
+        <div class="card">
+          <p class="label">Total Orders</p>
+          <h2 id="kpiOrders">0</h2>
+          <p class="meta" id="kpiOrdersSub">Distinct order_id</p>
+        </div>
+
+        <div class="card">
+          <p class="label">Total Pizzas Sold</p>
+          <h2 id="kpiQty">0</h2>
+          <p class="meta" id="kpiQtySub">SUM(quantity)</p>
+        </div>
+
+        <div class="card">
+          <p class="label">Avg Order Value (AOV)</p>
+          <h2 id="kpiAOV">₹0</h2>
+          <p class="meta" id="kpiAOVSub">AVG(order_total)</p>
+        </div>
+
+        <div class="card">
+          <p class="label">Avg Pizzas / Order</p>
+          <h2 id="kpiPizzasPerOrder">0</h2>
+          <p class="meta" id="kpiPizzasPerOrderSub">SUM(qty)/COUNT(orders)</p>
+        </div>
+
+        <div class="card">
+          <p class="label">Best Day (Revenue)</p>
+          <h2 id="kpiBestDay">—</h2>
+          <p class="meta" id="kpiBestDaySub">Day-of-week analysis</p>
+        </div>
+      </section>
+
+      <!-- CHARTS ROW 1 -->
+      <section class="grid2">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Revenue Trend</h3>
+            <p class="panel-sub">
+              Date vs Total Revenue (Daily/Weekly/Monthly)
+            </p>
+          </div>
+          <div id="trendChart" class="chart"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Category Split</h3>
+            <p class="panel-sub">Distribution by Quantity / Revenue</p>
+            <div class="segmented">
+              <button class="seg-btn active" data-catmetric="qty">Qty</button>
+              <button class="seg-btn" data-catmetric="revenue">Revenue</button>
+            </div>
+          </div>
+          <div class="donut-wrap">
+            <div id="categoryDonut" class="donut"></div>
+            <div id="categoryLegend" class="donut-legend"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHARTS ROW 2 -->
+      <section class="grid3">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Top/Bottom Selling Pizzas</h3>
+            <p class="panel-sub">Rank by Quantity or Revenue</p>
+            <div class="panel-actions">
+              <select id="rankMetric">
+                <option value="qty" selected>By Quantity</option>
+                <option value="revenue">By Revenue</option>
+              </select>
+              <select id="rankMode">
+                <option value="top" selected>Top</option>
+                <option value="bottom">Bottom</option>
+              </select>
+            </div>
+          </div>
+          <div id="topPizzasBar" class="chart"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Size Preference</h3>
+            <p class="panel-sub">Distribution by pizza_size</p>
+          </div>
+          <div id="sizeChart" class="chart"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Day of Week Sales</h3>
+            <p class="panel-sub">Which days have the highest sales</p>
+          </div>
+          <div id="dowChart" class="chart"></div>
+        </div>
+      </section>
+
+      <!-- CHARTS ROW 3 -->
+      <section class="grid2">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Hourly Sales Pattern</h3>
+            <p class="panel-sub">Peak ordering times (HOUR(order_time))</p>
+          </div>
+          <div id="hourlyHeatmap" class="chart"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Price Analysis</h3>
+            <p class="panel-sub">
+              Unit price distribution + Premium vs Standard
+            </p>
+          </div>
+          <div id="priceDistribution" class="chart"></div>
+        </div>
+      </section>
+
+      <!-- INGREDIENTS + INSIGHTS -->
+      <section class="grid2">
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Ingredient Popularity</h3>
+            <p class="panel-sub">Parsed from pizza_ingredients</p>
+          </div>
+          <div id="ingredientsWordCloud" class="chart wordcloud"></div>
+          <div class="mini-table">
+            <h4>Top Ingredients (Table)</h4>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Ingredient</th>
+                    <th>Count</th>
+                  </tr>
+                </thead>
+                <tbody id="ingredientsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h3>Business Insights</h3>
+            <p class="panel-sub">Auto insights based on filtered data</p>
+          </div>
+
+          <div class="insights">
+            <div class="insight">
+              <h4>Peak Hour Staffing</h4>
+              <p id="insightPeakHour">—</p>
+            </div>
+
+            <div class="insight">
+              <h4>Menu Optimization</h4>
+              <p id="insightMenuOpt">—</p>
+            </div>
+
+            <div class="insight">
+              <h4>Inventory Planning</h4>
+              <p id="insightInventory">—</p>
+            </div>
+
+            <div class="insight">
+              <h4>Popularity vs Price</h4>
+              <p id="insightPricePopularity">—</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DRILLDOWN PANEL -->
+      <section class="panel" id="drilldownPanel">
+        <div class="panel-head">
+          <h3>Drill-down</h3>
+          <p class="panel-sub">Category → Pizzas → Orders</p>
+          <button id="closeDrilldown" class="btn btn-ghost">Close</button>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <h4 class="subhead">Selected Item</h4>
+            <div id="drilldownInfo" class="drill-info">
+              Click a chart item to drill down.
+            </div>
+          </div>
+
+          <div>
+            <h4 class="subhead">Details Chart</h4>
+            <div id="drilldownChart" class="chart"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORDERS TABLE -->
+      <section class="panel">
+        <div class="panel-head">
+          <h3>Orders</h3>
+          <p class="panel-sub">
+            Filterable table (order_id, date, time, pizza, qty, price, revenue)
+          </p>
+          <div class="panel-actions">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search order id / pizza / ingredient..."
+            />
+            <button id="exportBtn" class="btn">Export CSV</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Pizza</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Qty</th>
+                <th>Unit Price</th>
+                <th>Revenue</th>
+                <th>Ingredients</th>
+                <th>Customer (Optional)</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTbody"></tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <p id="tableCount">Showing 0 rows</p>
+          <div class="pager">
+            <button id="prevPage" class="btn btn-ghost">Prev</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextPage" class="btn btn-ghost">Next</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

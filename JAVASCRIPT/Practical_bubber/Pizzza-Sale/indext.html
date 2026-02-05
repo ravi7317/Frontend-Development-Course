@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 Pizza Sales Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <h1><i class="fas fa-pizza-slice"></i> Pizza Sales Dashboard</h1>
+                <p class="subtitle">Real-time Analytics & Business Insights</p>
+            </div>
+            <div class="date-info">
+                <span id="currentDate"></span>
+            </div>
+        </header>
+
+        <!-- Filters -->
+        <section class="filters-section">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="dateFrom"><i class="fas fa-calendar-alt"></i> From</label>
+                    <input type="date" id="dateFrom" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label for="dateTo"><i class="fas fa-calendar-alt"></i> To</label>
+                    <input type="date" id="dateTo" class="filter-input">
+                </div>
+                <div class="filter-group">
+                    <label for="categoryFilter"><i class="fas fa-layer-group"></i> Category</label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="ALL">All Categories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="sizeFilter"><i class="fas fa-expand-alt"></i> Size</label>
+                    <select id="sizeFilter" class="filter-select">
+                        <option value="ALL">All Sizes</option>
+                    </select>
+                </div>
+                <button id="applyFilters" class="btn btn-primary">
+                    <i class="fas fa-filter"></i> Apply Filters
+                </button>
+                <button id="resetFilters" class="btn btn-secondary">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+        </section>
+
+        <!-- KPI Cards -->
+        <section class="kpi-section">
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Total Revenue</h3>
+                        <p id="totalRevenue" class="kpi-value">₹0</p>
+                        <p id="revenueChange" class="kpi-change">+0%</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Total Orders</h3>
+                        <p id="totalOrders" class="kpi-value">0</p>
+                        <p id="ordersChange" class="kpi-change">+0%</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Pizzas Sold</h3>
+                        <p id="totalPizzas" class="kpi-value">0</p>
+                        <p id="pizzasChange" class="kpi-change">+0%</p>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Avg Order Value</h3>
+                        <p id="avgOrderValue" class="kpi-value">₹0</p>
+                        <p id="aovChange" class="kpi-change">+0%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-row">
+                <!-- Revenue Trend Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-line"></i> Revenue Trend</h3>
+                        <select id="trendPeriod" class="chart-select">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly" selected>Monthly</option>
+                        </select>
+                    </div>
+                    <div id="revenueChart" class="chart-container">
+                        <canvas id="revenueTrendChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Category Distribution -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-pie"></i> Category Distribution</h3>
+                        <div class="chart-toggle">
+                            <button class="toggle-btn active" data-metric="quantity">Quantity</button>
+                            <button class="toggle-btn" data-metric="revenue">Revenue</button>
+                        </div>
+                    </div>
+                    <div id="categoryChart" class="chart-container">
+                        <canvas id="categoryPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <!-- Top Selling Pizzas -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-trophy"></i> Top Selling Pizzas</h3>
+                        <select id="topCount" class="chart-select">
+                            <option value="5">Top 5</option>
+                            <option value="10" selected>Top 10</option>
+                            <option value="15">Top 15</option>
+                        </select>
+                    </div>
+                    <div id="topPizzasChart" class="chart-container">
+                        <canvas id="topPizzasBarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Hourly Sales -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-clock"></i> Hourly Sales Pattern</h3>
+                    </div>
+                    <div id="hourlyChart" class="chart-container">
+                        <canvas id="hourlyHeatmapChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-row">
+                <!-- Size Distribution -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-expand-alt"></i> Size Preference</h3>
+                    </div>
+                    <div id="sizeChart" class="chart-container">
+                        <canvas id="sizeDistributionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Day of Week Analysis -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-calendar-day"></i> Best Selling Days</h3>
+                    </div>
+                    <div id="dowChart" class="chart-container">
+                        <canvas id="dayOfWeekChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Table -->
+        <section class="table-section">
+            <div class="table-card">
+                <div class="table-header">
+                    <h3><i class="fas fa-table"></i> Orders Data</h3>
+                    <div class="table-controls">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Search orders...">
+                        </div>
+                        <button id="exportData" class="btn btn-success">
+                            <i class="fas fa-download"></i> Export CSV
+                        </button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Pizza</th>
+                                <th>Category</th>
+                                <th>Size</th>
+                                <th>Qty</th>
+                                <th>Unit Price</th>
+                                <th>Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <div class="pagination">
+                        <button id="prevPage" class="btn btn-outline">
+                            <i class="fas fa-chevron-left"></i> Previous
+                        </button>
+                        <span id="pageInfo">Page 1 of 1</span>
+                        <button id="nextPage" class="btn btn-outline">
+                            Next <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="table-stats">
+                        <span id="rowCount">Showing 0 of 0 rows</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="insights-section">
+            <div class="insights-card">
+                <h3><i class="fas fa-lightbulb"></i> Business Insights</h3>
+                <div class="insights-grid">
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Peak Hour Staffing</h4>
+                            <p id="peakHourInsight">Analyzing data...</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Menu Optimization</h4>
+                            <p id="menuInsight">Analyzing data...</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Inventory Planning</h4>
+                            <p id="inventoryInsight">Analyzing data...</p>
+                        </div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="insight-content">
+                            <h4>Price Analysis</h4>
+                            <p id="priceInsight">Analyzing data...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🍕 Pizza Sales Dashboard • Data updates in real-time • Made with ❤️</p>
+            <p id="dataInfo">Loading data...</p>
+        </footer>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Our JavaScript -->
+    <script src="Script.js"></script>
+</body>
+</html>
