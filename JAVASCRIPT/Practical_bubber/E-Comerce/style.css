@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+body{
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 30px;
+}
+
+.brand h1{
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+
+}
+.tagline{
+    color: #7f8c8d;
+    font-size: 0.9rem;
+
+}
+.cart-icon{
+    position: relative;
+    font-size: 1.8rem;
+    color: #3498db;
+    cursor: pointer;
+}
+.cart-count{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.main-content{
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    gap: 25px;
+    margin-bottom: 40px;
+
+}
+.filter-panel{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+
+}
+.filter-panel h2{
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group{
+    margin-bottom: 20px;
+}
+.filter-group label{
+    display:block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+    align-items: center;
+    gap: 8px;
+}
+.filter-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.price-input {
+    width: calc(50% - 10px);
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
