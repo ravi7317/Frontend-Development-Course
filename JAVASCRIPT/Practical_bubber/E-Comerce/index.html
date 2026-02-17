@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopEasy - Online Store</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- A. Header -->
+      <header class="header">
+        <div class="brand">
+          <h1><i class="fas fa-shopping-bag"></i> ShopEasy</h1>
+          <p class="tagline">Your one-stop shopping destination</p>
+        </div>
+        <div class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <!-- B. Filters Panel -->
+        <aside class="filters-panel">
+          <h2><i class="fas fa-filter"></i> Filters</h2>
+
+          <div class="filter-group">
+            <label for="search"
+              ><i class="fas fa-search"></i> Search Products</label
+            >
+            <input
+              type="text"
+              id="search"
+              placeholder="Type product name..."
+              class="filter-input"
+            />
+          </div>
+
+          <div class="filter-group">
+            <label for="category"><i class="fas fa-tags"></i> Category</label>
+            <select id="category" class="filter-input">
+              <option value="ALL">All Categories</option>
+              <!-- Categories will be populated dynamically -->
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label><i class="fas fa-money-bill-wave"></i> Price Range</label>
+            <div class="price-inputs">
+              <input
+                type="number"
+                id="min-price"
+                placeholder="Min"
+                class="price-input"
+                min="0"
+              />
+              <span>to</span>
+              <input
+                type="number"
+                id="max-price"
+                placeholder="Max"
+                class="price-input"
+                min="0"
+              />
+            </div>
+            <div class="price-slider-container">
+              <input
+                type="range"
+                id="price-slider"
+                min="0"
+                max="1000"
+                value="1000"
+                class="price-slider"
+              />
+              <div class="slider-value">
+                Up to $<span id="slider-value">1000</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label for="sort"
+              ><i class="fas fa-sort-amount-down"></i> Sort By</label
+            >
+            <select id="sort" class="filter-input">
+              <option value="NONE">None</option>
+              <option value="LOW">Price: Low to High</option>
+              <option value="HIGH">Price: High to Low</option>
+              <option value="RATING">Rating: High to Low</option>
+            </select>
+          </div>
+
+          <button id="clear-filters" class="btn-secondary">
+            <i class="fas fa-times"></i> Clear Filters
+          </button>
+        </aside>
+
+        <!-- C. Products Grid -->
+        <section class="products-section">
+          <div class="section-header">
+            <h2>Products</h2>
+            <div class="products-count">
+              <span id="products-count">0</span> products found
+            </div>
+          </div>
+
+          <div class="products-grid" id="products-grid">
+            <!-- Product cards will be rendered here dynamically -->
+            <div class="loading">
+              <i class="fas fa-spinner fa-spin"></i> Loading products...
+            </div>
+          </div>
+        </section>
+
+        <!-- D. Cart Panel -->
+        <aside class="cart-panel">
+          <div class="cart-header">
+            <h2><i class="fas fa-shopping-cart"></i> Shopping Cart</h2>
+            <button id="clear-cart" class="btn-clear">
+              <i class="fas fa-trash"></i> Clear Cart
+            </button>
+          </div>
+
+          <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+              <i class="fas fa-cart-arrow-down"></i>
+              <p>Your cart is empty</p>
+              <p>Add some products from the store</p>
+            </div>
+          </div>
+
+          <div class="cart-totals">
+            <div class="total-row">
+              <span>Subtotal</span>
+              <span id="subtotal">$0.00</span>
+            </div>
+            <div class="total-row">
+              <span>Shipping</span>
+              <span id="shipping">$0.00</span>
+            </div>
+            <div class="total-row grand-total">
+              <span>Total</span>
+              <span id="total">$0.00</span>
+            </div>
+            <button id="checkout-btn" class="btn-primary checkout-btn" disabled>
+              <i class="fas fa-lock"></i> Proceed to Checkout
+            </button>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
